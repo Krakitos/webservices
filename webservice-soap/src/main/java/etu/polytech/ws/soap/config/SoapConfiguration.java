@@ -1,5 +1,6 @@
 package etu.polytech.ws.soap.config;
 
+import etu.polytech.ws.soap.endpoints.CountryEndpoint;
 import org.springframework.boot.context.embedded.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -23,22 +24,23 @@ public class SoapConfiguration extends WsConfigurerAdapter {
     public ServletRegistrationBean dispatcherServlet(ApplicationContext applicationContext) {
         MessageDispatcherServlet servlet = new MessageDispatcherServlet();
         servlet.setApplicationContext(applicationContext);
-        return new ServletRegistrationBean(servlet, "/services/*");
+        servlet.setTransformWsdlLocations(true);
+        return new ServletRegistrationBean(servlet, "/ws/*");
     }
 
-    @Bean(name = "holiday")
+    @Bean(name = "countries")
     public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema countriesSchema) {
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
-        wsdl11Definition.setPortTypeName("HumanResource");
-        wsdl11Definition.setLocationUri("/holidayService/");
-        wsdl11Definition.setTargetNamespace("http://mycompany.com/hr/definitions");
+        wsdl11Definition.setPortTypeName("Countries");
+        wsdl11Definition.setLocationUri("/ws");
+        wsdl11Definition.setTargetNamespace(CountryEndpoint.NAMESPACE_URI);
         wsdl11Definition.setSchema(countriesSchema);
         return wsdl11Definition;
     }
 
     @Bean
     public XsdSchema countriesSchema() {
-        return new SimpleXsdSchema(new ClassPathResource("META-INF/schemas/model.xsd"));
+        return new SimpleXsdSchema(new ClassPathResource("countries.xsd"));
     }
 
 }

@@ -1,9 +1,9 @@
 package etu.polytech.ws.soap.endpoints;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import etu.polytech.ws.soap.services.CountryService;
+import etu.polytech.ws.soap.lang.Country;
+import etu.polytech.ws.soap.lang.GetCountryRequest;
+import etu.polytech.ws.soap.lang.GetCountryResponse;
+import etu.polytech.ws.soap.services.CountryRepository;
 import org.jdom2.Element;
 import org.jdom2.Namespace;
 import org.jdom2.filter.Filters;
@@ -13,46 +13,39 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
+import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
+
+import java.util.Optional;
 
 /**
  * Created by momo- on 16/09/2015.
  */
 @Endpoint
 public class CountryEndpoint {
-    private static final String NAMESPACE_URI = "http://mycompany.com/hr/schemas";
+    public static final String NAMESPACE_URI = "http://etu/polytech/ws/soap/lang";
 
-    private XPathExpression<Element> startDateExpression;
-    private XPathExpression<Element> endDateExpression;
-    private XPathExpression<String> nameExpression;
+    private final XPathExpression<String> nameExpression;
 
-    private CountryService countryService;
+    private CountryRepository countryRepository;
 
     @Autowired
-    public CountryEndpoint(CountryService humanResourceService) throws Exception {
-        this.countryService = humanResourceService;
+    public CountryEndpoint(CountryRepository countryRepository) throws Exception {
+        this.countryRepository = countryRepository;
 
-        Namespace namespace = Namespace.getNamespace("hr", NAMESPACE_URI);
+        Namespace namespace = Namespace.getNamespace("pays", NAMESPACE_URI);
 
         XPathFactory xPathFactory = XPathFactory.instance();
 
-       /* this.startDateExpression = xPathFactory.compile("//hr:StartDate", Filters.element(), null, namespace);
-        this.endDateExpression = xPathFactory.compile("//hr:EndDate", Filters.element(), null, namespace);
-        this.nameExpression = xPathFactory.compile("concat(//hr:FirstName,' ',//hr:LastName)",
-                                                    Filters.fstring(), null,
-                                                    namespace
-        );*/
+        nameExpression = xPathFactory.compile("//pays:name", Filters.fstring(), null, namespace);
     }
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "CountryRequest")
-    public void handleHolidayRequest(@RequestPayload Element holidayRequest)throws Exception {
-/*
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        Date startDate = dateFormat.parse(startDateExpression.evaluateFirst(
-                holidayRequest).getText());
-        Date endDate = dateFormat.parse(endDateExpression.evaluateFirst(
-                holidayRequest).getText());
-        String name = nameExpression.evaluateFirst(holidayRequest);
+    @ResponsePayload
+    public GetCountryResponse handlePaysRequest(@RequestPayload GetCountryRequest countryRequest)throws Exception {
+        GetCountryResponse response = new GetCountryResponse();
+        Optional<Country> country = countryRepository.findCountry(countryRequest.getName());
+        country.ifPresent(response::setCountry);
 
-        countryService.get(startDate, endDate, name);*/
+        return response;
     }
 }
