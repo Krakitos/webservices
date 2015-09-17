@@ -21,7 +21,7 @@ import org.springframework.xml.xsd.XsdSchema;
 public class SoapConfiguration extends WsConfigurerAdapter {
 
     @Bean
-    public ServletRegistrationBean dispatcherServlet(ApplicationContext applicationContext) {
+    public ServletRegistrationBean messageDispatcherServlet(ApplicationContext applicationContext) {
         MessageDispatcherServlet servlet = new MessageDispatcherServlet();
         servlet.setApplicationContext(applicationContext);
         servlet.setTransformWsdlLocations(true);

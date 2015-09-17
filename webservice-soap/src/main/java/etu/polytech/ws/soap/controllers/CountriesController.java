@@ -7,10 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Created by Morgan on 16/09/2015.
  */
 @Controller
+@RequestMapping("/countries")
 public class CountriesController {
 
-    @RequestMapping("/home")
-    public void home(){
-        System.out.println("Salut");
+    @RequestMapping("/")
+    public String home(){
+        return "welcome";
     }
 }
