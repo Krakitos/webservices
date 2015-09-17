@@ -22,7 +22,6 @@ public class CountriesController {
     @RequestMapping("/")
     public ModelAndView home(){
         Iterable<CountryEntity> countries = countryRepository.findAll();
-        System.out.println(countries);
         return new ModelAndView("welcome", "countries", countries);
     }
 }
