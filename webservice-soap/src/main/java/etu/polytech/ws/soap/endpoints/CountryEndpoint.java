@@ -5,7 +5,6 @@ import etu.polytech.ws.soap.lang.Country;
 import etu.polytech.ws.soap.lang.GetCountryRequest;
 import etu.polytech.ws.soap.lang.GetCountryResponse;
 import etu.polytech.ws.soap.services.CountryRepository;
-import org.jdom2.Element;
 import org.jdom2.Namespace;
 import org.jdom2.filter.Filters;
 import org.jdom2.xpath.XPathExpression;
@@ -42,7 +41,7 @@ public class CountryEndpoint {
 
         XPathFactory xPathFactory = XPathFactory.instance();
 
-        nameExpression = xPathFactory.compile("//pays:name", Filters.fstring(), null, namespace);
+        nameExpression = xPathFactory.compile("//pays:getName", Filters.fstring(), null, namespace);
     }
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getCountryRequest")
@@ -60,9 +59,9 @@ public class CountryEndpoint {
                 LOGGER.debug("Found country in the database : {}", c);
 
             Country country = new Country();
-            country.setName(c.name());
-            country.setCapital(c.capital());
-            country.setPopulation(c.population());
+            country.setName(c.getName());
+            country.setCapital(c.getCapital());
+            country.setPopulation(c.getPopulation());
             response.setCountry(country);
         });
 

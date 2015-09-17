@@ -29,24 +29,24 @@ public class CountryEntity {
         this.population = population;
     }
 
-    public String name() {
+    public String getName() {
         return name;
     }
 
-    public String capital() {
+    public String getCapital() {
         return capital;
     }
 
-    public long population() {
+    public long getPopulation() {
         return population;
     }
 
     @Override
     public String toString() {
         return "CountryEntity{" +
-                "name='" + name + '\'' +
-                ", capital='" + capital + '\'' +
-                ", population=" + population +
+                "getName='" + name + '\'' +
+                ", getCapital='" + capital + '\'' +
+                ", getPopulation=" + population +
                 '}';
     }
 }
