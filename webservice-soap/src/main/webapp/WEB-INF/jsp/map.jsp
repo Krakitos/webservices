@@ -54,7 +54,9 @@
                                 var name = request.getElementsByTagNameNS(SOAP_NS, "name")[0].innerHTML;
                                 var capital = request.getElementsByTagNameNS(SOAP_NS, "capital")[0].innerHTML;
                                 var population = request.getElementsByTagNameNS(SOAP_NS, "population")[0].innerHTML;
-                                label.text(name + " " + capital + " " + population + " habitants");
+                                label.text(name +
+                                        ", Capitale : " + capital +
+                                        ", Population : " + population + " habitants");
                             }else{
                                 label.text("Non trouvé");
                             }
