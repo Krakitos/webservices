@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.Collections;
 
 /**
  * Created by Morgan on 16/09/2015.
@@ -22,6 +21,6 @@ public class CountriesController {
     @RequestMapping("/")
     public ModelAndView home(){
         Iterable<CountryEntity> countries = countryRepository.findAll();
-        return new ModelAndView("welcome", "countries", countries);
+        return new ModelAndView("map", "countries", countries);
     }
 }
