@@ -3,7 +3,7 @@
            targetNamespace="http://etu/polytech/ws/soap/lang"
            elementFormDefault="qualified">
 
-    <xs:element name="getCountryRequest">
+    <xs:element name="countryRequest">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="name" type="xs:string"/>
@@ -11,10 +11,18 @@
         </xs:complexType>
     </xs:element>
 
-    <xs:element name="getCountryResponse">
+    <xs:element name="countryResponse">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="country" type="tns:country"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="countryByCapitalRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="capital" type="xs:string" />
             </xs:sequence>
         </xs:complexType>
     </xs:element>

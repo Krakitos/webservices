@@ -2,8 +2,9 @@ package etu.polytech.ws.soap.endpoints;
 
 import etu.polytech.ws.soap.domain.CountryEntity;
 import etu.polytech.ws.soap.lang.Country;
-import etu.polytech.ws.soap.lang.GetCountryRequest;
-import etu.polytech.ws.soap.lang.GetCountryResponse;
+import etu.polytech.ws.soap.lang.CountryByCapitalRequest;
+import etu.polytech.ws.soap.lang.CountryRequest;
+import etu.polytech.ws.soap.lang.CountryResponse;
 import etu.polytech.ws.soap.services.CountryRepository;
 import org.jdom2.Namespace;
 import org.jdom2.filter.Filters;
@@ -25,10 +26,8 @@ import java.util.Optional;
 @Endpoint
 public class CountryEndpoint {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(CountryEndpoint.class);
-
     public static final String NAMESPACE_URI = "http://etu/polytech/ws/soap/lang";
-
+    private static final Logger LOGGER = LoggerFactory.getLogger(CountryEndpoint.class);
     private final XPathExpression<String> nameExpression;
 
     private CountryRepository countryRepository;
@@ -44,15 +43,39 @@ public class CountryEndpoint {
         nameExpression = xPathFactory.compile("//pays:getName", Filters.fstring(), null, namespace);
     }
 
-    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getCountryRequest")
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "countryRequest")
     @ResponsePayload
-    public GetCountryResponse handlePaysRequest(@RequestPayload GetCountryRequest countryRequest)throws Exception {
+    public CountryResponse handleCountryRequest(@RequestPayload CountryRequest countryRequest)throws Exception {
 
         if(LOGGER.isDebugEnabled())
             LOGGER.debug("Received SOAP GetCountryRequest for country {}", countryRequest.getName());
 
-        GetCountryResponse response = new GetCountryResponse();
+        CountryResponse response = new CountryResponse();
         Optional<CountryEntity> entity = Optional.ofNullable(countryRepository.findOne(countryRequest.getName().toUpperCase()));
+        entity.ifPresent(c -> {
+
+            if(LOGGER.isDebugEnabled())
+                LOGGER.debug("Found country in the database : {}", c);
+
+            Country country = new Country();
+            country.setName(c.getName());
+            country.setCapital(c.getCapital());
+            country.setPopulation(c.getPopulation());
+            response.setCountry(country);
+        });
+
+        return response;
+    }
+
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "countryByCapitalRequest")
+    @ResponsePayload
+    public CountryResponse handleCapitalRequest(@RequestPayload CountryByCapitalRequest countryRequest)throws Exception {
+
+        if(LOGGER.isDebugEnabled())
+            LOGGER.debug("Received SOAP Request CountryByCapital for capital {}", countryRequest.getCapital());
+
+        CountryResponse response = new CountryResponse();
+        Optional<CountryEntity> entity = countryRepository.findByCapital(countryRequest.getCapital().toUpperCase());
         entity.ifPresent(c -> {
 
             if(LOGGER.isDebugEnabled())
