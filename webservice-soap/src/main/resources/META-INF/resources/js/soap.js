@@ -7,9 +7,9 @@ function getCountry(country, onReady, onFailed){
         '<x:Envelope xmlns:x="http://schemas.xmlsoap.org/soap/envelope/" xmlns:lan="' + SOAP_NS + '">' +
             '<x:Header/>' +
                 '<x:Body>' +
-                    '<lan:getCountryRequest>' +
+                    '<lan:countryRequest>' +
                         '<lan:name>?</lan:name>' +
-                    '</lan:getCountryRequest>' +
+                    '</lan:countryRequest>' +
                 '</x:Body>' +
         '</x:Envelope>';
 
