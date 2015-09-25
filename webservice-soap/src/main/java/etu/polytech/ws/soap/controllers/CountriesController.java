@@ -4,6 +4,7 @@ import etu.polytech.ws.soap.services.CountryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 
 /**
@@ -17,7 +18,7 @@ public class CountriesController {
     CountryRepository countryRepository;
 
     @RequestMapping("/")
-    public String home(){
-        return "map";
+    public ModelAndView home(){
+        return new ModelAndView("map", "countries", countryRepository.findAll());
     }
 }

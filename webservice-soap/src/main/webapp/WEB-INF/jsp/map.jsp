@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=utf-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html class="full" lang="en">
 <!-- Make sure the <html> tag is set to the .full CSS class. Change the background image in the full.css file. -->
@@ -94,9 +95,20 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12">
-            <h1 class="webpage-header text-center">Carte du monde interactive</h1>
-            <h5 class="webpage-header text-center">Survolez un pays pour afficher ces informations.</h5>
-            <div id="worldmap" style="width: 100%; height: 600px; margin-top: 30px"></div>
+            <div class="col-lg-2">
+                <nav class="list-group">
+                    <ul>
+                        <c:forEach var="country" items="${countries}">
+                            <li class="list-group-item"><c:out value="${country.name}" /></li>
+                        </c:forEach>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-lg-10">
+                <h1 class="webpage-header text-center">Carte du monde interactive</h1>
+                <h5 class="webpage-header text-center">Survolez un pays pour afficher ces informations.</h5>
+                <div id="worldmap" style="width: 100%; height: 600px; margin-top: 30px"></div>
+            </div>
         </div>
     </div>
 </div>
