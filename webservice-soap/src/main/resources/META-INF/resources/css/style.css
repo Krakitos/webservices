@@ -6,3 +6,26 @@
     max-height: 300px;
     overflow-y:scroll;
 }
+
+#worldmap{
+    width: 100%;
+    height: 550px;
+    margin-top: 30px
+}
+
+#listPays {
+    height: 550px;
+    overflow: auto;
+    margin-top: 100px;
+}
+
+.list-group {
+    background-color: #444444;
+}
+
+#listli{
+    word-wrap:break-word;
+    background-color: #444444;
+    color: #ffffff;
+    border: none;
+}

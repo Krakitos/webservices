@@ -95,19 +95,19 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12">
-            <div class="col-lg-2">
+            <div class="col-lg-3">
                 <nav class="list-group">
-                    <ul>
+                    <ul id="listPays">
                         <c:forEach var="country" items="${countries}">
-                            <li class="list-group-item"><c:out value="${country.name}" /></li>
+                            <li class="list-group-item" id="listli" style="word-wrap:break-word;"><c:out value="${country.name}" /></li>
                         </c:forEach>
                     </ul>
                 </nav>
             </div>
-            <div class="col-lg-10">
+            <div class="col-lg-9">
                 <h1 class="webpage-header text-center">Carte du monde interactive</h1>
                 <h5 class="webpage-header text-center">Survolez un pays pour afficher ces informations.</h5>
-                <div id="worldmap" style="width: 100%; height: 600px; margin-top: 30px"></div>
+                <div id="worldmap"></div>
             </div>
         </div>
     </div>
