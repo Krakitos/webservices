@@ -92,7 +92,7 @@
     </div>
 </nav>
 
-<div>
+<div class="container" id="noMargin">
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="col-lg-3" id="custombar">
@@ -104,7 +104,7 @@
                     </ul>
                 </nav>
             </div>
-            <div class="col-lg-9">
+            <div class="col-lg-9 center-block">
                 <h1 class="webpage-header text-center">Carte du monde interactive</h1>
                 <h5 class="webpage-header text-center">Survolez un pays pour afficher ces informations.</h5>
                 <div id="worldmap"></div>
