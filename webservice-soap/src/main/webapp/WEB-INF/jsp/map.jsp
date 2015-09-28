@@ -87,7 +87,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <div class="navbar-brand">Polytech'Lyon Morgan Funtowicz & Mickael Shah</div>
+            <div class="navbar-brand">Polytech Lyon Morgan Funtowicz & Mickael Shah</div>
         </div>
     </div>
 </nav>
@@ -95,11 +95,11 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12">
-            <div class="col-lg-3">
+            <div class="col-lg-3" id="custombar">
                 <nav class="list-group">
                     <ul id="listPays">
                         <c:forEach var="country" items="${countries}">
-                            <li class="list-group-item" id="listli" style="word-wrap:break-word;"><c:out value="${country.name}" /></li>
+                            <li class="list-group-item" id="listli" style="word-wrap:break-word;"><a onClick="alert('ok');"><c:out value="${country.name}" /></a></li>
                         </c:forEach>
                     </ul>
                 </nav>
