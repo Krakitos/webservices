@@ -24,6 +24,54 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.vmap.min.js"></script>
+    <script src="/maps/jquery.vmap.world.js"></script>
+    <script src="/data/jquery.vmap.sampledata.js"></script>
+    <script src="/js/countries.js"></script>
+    <script src="/js/soap.js"></script>
+    <script type="application/javascript">
+        jQuery(document).ready(function(){
+
+            console.log("Loading Vector Map");
+
+            $('#worldmap').vectorMap({
+                map:'world_en',
+                backgroundColor: null,
+                color: '#ffffff',
+                hoverOpacity: 0.7,
+                selectedColor: '#666666',
+                enableZoom: false,
+                showTooltip: true,
+                values: sample_data,
+                scaleColors: ['#C8EEFF', '#006491'],
+                normalizeFunction: 'polynomial',
+                onLabelShow: function(event, label, code){
+                    var country = getBy('iso2', code);
+                    if(country != null){
+                        getCountry(country.fr, function(request){
+                            if(request.getElementsByTagNameNS(SOAP_NS, "name").length > 0) {
+                                var name = request.getElementsByTagNameNS(SOAP_NS, "name")[0].innerHTML;
+                                var capital = request.getElementsByTagNameNS(SOAP_NS, "capital")[0].innerHTML;
+                                var population = request.getElementsByTagNameNS(SOAP_NS, "population")[0].innerHTML;
+                                label.text(name +
+                                        ", Capitale : " + capital +
+                                        ", Population : " + population + " habitants");
+                            }else{
+                                label.text("Non trouvé");
+                            }
+                        }, function(error){
+                            label.text("Une erreur est survenue : " + error);
+                        });
+                    }else{
+                        label.text("Non trouvé");
+                    }
+                }
+            })
+        })
+    </script>
+
 </head>
 
 <body>
@@ -44,7 +92,7 @@
     </div>
 </nav>
 
-<div id="blabla" class="container">
+<div class="container" id="noMargin">
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="col-lg-3" id="custombar">
@@ -56,7 +104,7 @@
                     </ul>
                 </nav>
             </div>
-            <div class="col-lg-9">
+            <div class="col-lg-9 center-block">
                 <h1 class="webpage-header text-center">Carte du monde interactive</h1>
                 <h5 class="webpage-header text-center">Survolez un pays pour afficher ces informations.</h5>
                 <div id="worldmap"></div>
@@ -114,4 +162,5 @@
 
     });
 </script>
+<script src="${pageContext.request.contextPath}/js/typeahead.bundle.min.js" ></script>
 </html>
