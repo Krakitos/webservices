@@ -9,12 +9,11 @@
 
 #worldmap{
     width: 100%;
-    height: 550px;
-    margin-top: 30px
+    height: 450px;
 }
 
 #listPays {
-    height: 550px;
+    height: 450px;
     overflow: auto;
     margin-top: 100px;
 }
@@ -60,5 +59,10 @@ a {
 a:hover{
     text-decoration: none;
     color: grey;
+}
+
+#blabla{
+    margin: 0;
+    padding: 0;
 }
 

@@ -12,10 +12,10 @@
 
     <title>Pays interactifs</title>
 
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/the-big-picture.css" rel="stylesheet">
-    <link href="/css/jqvmap.css" rel="stylesheet"/>
-    <link href="/css/style.css" rel="stylesheet"/>
+    <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/the-big-picture.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/jquery-jvectormap-2.0.4.css" rel="stylesheet"/>
+    <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet"/>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -23,54 +23,6 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-    <script src="/js/jquery.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/jquery.vmap.min.js"></script>
-    <script src="/maps/jquery.vmap.world.js"></script>
-    <script src="/data/jquery.vmap.sampledata.js"></script>
-    <script src="/js/countries.js"></script>
-    <script src="/js/soap.js"></script>
-    <script type="application/javascript">
-        jQuery(document).ready(function(){
-
-            console.log("Loading Vector Map");
-
-            $('#worldmap').vectorMap({
-                map:'world_en',
-                backgroundColor: null,
-                color: '#ffffff',
-                hoverOpacity: 0.7,
-                selectedColor: '#666666',
-                enableZoom: false,
-                showTooltip: true,
-                values: sample_data,
-                scaleColors: ['#C8EEFF', '#006491'],
-                normalizeFunction: 'polynomial',
-                onLabelShow: function(event, label, code){
-                    var country = getBy('iso2', code);
-                    if(country != null){
-                        getCountry(country.fr, function(request){
-                            if(request.getElementsByTagNameNS(SOAP_NS, "name").length > 0) {
-                                var name = request.getElementsByTagNameNS(SOAP_NS, "name")[0].innerHTML;
-                                var capital = request.getElementsByTagNameNS(SOAP_NS, "capital")[0].innerHTML;
-                                var population = request.getElementsByTagNameNS(SOAP_NS, "population")[0].innerHTML;
-                                label.text(name +
-                                        ", Capitale : " + capital +
-                                        ", Population : " + population + " habitants");
-                            }else{
-                                label.text("Non trouvé");
-                            }
-                        }, function(error){
-                            label.text("Une erreur est survenue : " + error);
-                        });
-                    }else{
-                        label.text("Non trouvé");
-                    }
-                }
-            })
-        })
-    </script>
 
 </head>
 
@@ -92,7 +44,7 @@
     </div>
 </nav>
 
-<div>
+<div id="blabla" class="container">
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="col-lg-3" id="custombar">
@@ -115,9 +67,10 @@
 </body>
 <script src="${pageContext.request.contextPath}/js/jquery.js"></script>
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/jquery.vmap.min.js"></script>
-<script src="${pageContext.request.contextPath}/maps/jquery.vmap.world.js"></script>
-<script src="${pageContext.request.contextPath}/data/jquery.vmap.sampledata.js"></script>
+<script src="${pageContext.request.contextPath}/js/jquery-jvectormap-2.0.4.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/gdp-data.js"></script>
+<script src="${pageContext.request.contextPath}/js/jquery-jvectormap-world-mill-en.js"></script>
+<script src="${pageContext.request.contextPath}/js/typeahead.bundle.min.js" ></script>
 <script src="${pageContext.request.contextPath}/js/countries.js"></script>
 <script src="${pageContext.request.contextPath}/js/soap.js"></script>
 <script type="application/javascript">
@@ -125,18 +78,18 @@
 
         console.log("Loading Vector Map");
 
-        $('#worldmap').vectorMap({
-            map:'world_en',
-            backgroundColor: null,
-            color: '#ffffff',
-            hoverOpacity: 0.7,
-            selectedColor: '#666666',
-            enableZoom: false,
-            showTooltip: true,
-            values: sample_data,
-            scaleColors: ['#C8EEFF', '#006491'],
-            normalizeFunction: 'polynomial',
-            onLabelShow: function(event, label, code){
+        $("#worldmap").vectorMap({
+            map: 'world_mill_en',
+            series: {
+                regions: [{
+                    values: gdpData,
+                    scale: ['#C8EEFF', '#0071A4'],
+                    normalizeFunction: 'polynomial'
+                }]
+            },
+            onRegionTipShow: function(e, label, code){
+                console.log("Over : " + code);
+
                 var country = getBy('iso2', code);
                 if(country != null){
                     getCountry(country.fr, function(request){
@@ -144,21 +97,21 @@
                             var name = request.getElementsByTagNameNS(SOAP_NS, "name")[0].innerHTML;
                             var capital = request.getElementsByTagNameNS(SOAP_NS, "capital")[0].innerHTML;
                             var population = request.getElementsByTagNameNS(SOAP_NS, "population")[0].innerHTML;
-                            label.text(name +
-                                    ", Capitale : " + capital +
+                            label.html('<div style="text-align: center;">' + name  +"</div>" +
+                                    "Capitale : " + capital +
                                     ", Population : " + population + " habitants");
                         }else{
-                            label.text("Non trouvé");
+                            label.html(label.html() + " Non trouvé");
                         }
                     }, function(error){
-                        label.text("Une erreur est survenue : " + error);
+                        label.html("Une erreur est survenue : " + error);
                     });
                 }else{
-                    label.text("Non trouvé");
+                    label.html("Non trouvé");
                 }
             }
-        })
-    })
+        }).vectorMap('get', 'mapObject').updateSize();
+
+    });
 </script>
-<script src="${pageContext.request.contextPath}/js/typeahead.bundle.min.js" ></script>
 </html>
