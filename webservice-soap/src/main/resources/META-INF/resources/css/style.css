@@ -2,20 +2,14 @@
     color: white;
 }
 
-.nav{
-    max-height: 300px;
-    overflow-y:scroll;
-}
-
 #worldmap{
-    width: 100%;
     height: 450px;
+    max-height: 1024px;
 }
 
 #listPays {
-    height: 450px;
-    overflow: auto;
-    margin-top: 100px;
+    max-height: 100%;
+    overflow: scroll;
 }
 
 .list-group {
@@ -51,6 +45,7 @@
     border-radius:10px;
     -webkit-box-shadow:0 0 6px gray inset;
 }
+
 a {
     text-decoration: none;
     color: white;
@@ -61,8 +56,25 @@ a:hover{
     color: grey;
 }
 
-#noMargin{
-    margin: 0;
-    padding: 0;
+.container-fluid{
+    height: 100%;
+}
 
+.jvectormap-container {
+    height:100%;
+    width:100%;
+}
+
+body{
+    margin: 0
+}
+
+.fill-height {
+    height: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+footer{
+    width: 100%;
 }
