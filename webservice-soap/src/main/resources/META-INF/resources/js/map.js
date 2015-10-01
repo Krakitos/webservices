@@ -34,5 +34,11 @@ jQuery(document).ready(function(){
 });
 
 function selectRegion(region) {
-    $("#worldmap").vectorMap('get','mapObject').setSelectedRegions(getBy('fr',region).iso2);
+    var map = $("#worldmap").vectorMap('get','mapObject');
+    var country = getBy('fr',region);
+
+    if(country) {
+        map.clearSelectedRegions();
+        map.setSelectedRegions(country.iso2);
+    }
 }
