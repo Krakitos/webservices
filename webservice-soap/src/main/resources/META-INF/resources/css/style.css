@@ -1,22 +1,42 @@
-html, body, table {
-    height:100%
+body {
+    background: none;
 }
 
-.container-fluid{
-    margin-bottom: -50px;
+.full {
+    background-color: #444444;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .webpage-header{
     color: white;
 }
 
-#listPays {
-    max-height: 100%;
-    overflow: scroll;
+a {
+    text-decoration: none;
+    color: white;
 }
 
-.list-group {
+a:hover{
+    text-decoration: none;
+    color: grey;
+}
+
+.container-fluid{
+    height: 80vh;
+}
+
+.list-group{
+    height: 75vh;
     background-color: #444444;
+}
+
+#listPays {
+    height: 80vh;
+    overflow: scroll;
+    overflow-x: hidden;
 }
 
 #listli{
@@ -49,46 +69,15 @@ html, body, table {
     -webkit-box-shadow:0 0 6px gray inset;
 }
 
-a {
-    text-decoration: none;
-    color: white;
-}
-
-a:hover{
-    text-decoration: none;
-    color: grey;
-}
-
-.container-fluid{
-    height: 100%;
-}
-
-.jvectormap-container {
-    height:100%;
-    width:100%;
-}
-
-.fill-height {
-    height: 100%;
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-table tbody, table thead
-{
-    display: block;
-}
-
-table tbody
-{
-    overflow: auto;
-    height: 100%;
-}
-
-th{
-    color:white;
-}
-
 footer{
     width: 100%;
+}
+
+#backTr{
+    background-color: #333333;
+    border : none;
+}
+
+.allSize{
+    height: 80vh;
 }
