@@ -246,7 +246,7 @@ function getBy(property, value){
     console.log("Trying to get city where city." + property + " = " + value);
 
     var found = mapping.filter(function(country){
-         return country.hasOwnProperty(property) && country[property] == value.toString().toUpperCase();
+         return country.hasOwnProperty(property) && country[property].toUpperCase() == value.toString().toUpperCase();
     });
 
     return found.length == 0 ? null : found[0];
