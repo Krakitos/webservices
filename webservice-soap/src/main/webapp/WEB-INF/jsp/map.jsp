@@ -81,7 +81,7 @@
                 <nav class="list-group">
                     <ul id="listPays">
                         <c:forEach var="country" items="${countries}">
-                            <li class="list-group-item" id="listli" style="word-wrap:break-word;"><a onClick="alert('ok');"><c:out value="${country.name}" /></a></li>
+                            <li class="list-group-item" id="listli"><a onClick="alert('ok');"><c:out value="${country.name}" /></a></li>
                         </c:forEach>
                     </ul>
                 </nav>
