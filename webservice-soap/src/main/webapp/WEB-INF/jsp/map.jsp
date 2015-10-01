@@ -26,29 +26,26 @@
 </head>
 
 <body>
-<header>
-    <h1 class="webpage-header text-center">Carte du monde interactive</h1>
-    <h5 class="webpage-header text-center">Survolez un pays pour afficher ces informations.</h5>
-</header>
-<div class="container-fluid">
-    <div class="row" style="background-color: red;">
-        <div class="col-lg-3">
-            <nav class="list-group">
-                <ul id="listPays">
-                    <c:forEach var="country" items="${countries}">
-                        <li class="list-group-item" id="listli" style="word-wrap:break-word;"><a onClick="alert('ok');"><c:out value="${country.name}" /></a></li>
-                    </c:forEach>
-                </ul>
-            </nav>
-        </div>
-        <div class="col-lg-9 center-block">
-            <div id="worldmap"></div>
-        </div>
+    <header>
+        <h1 class="webpage-header text-center">Carte du monde interactive</h1>
+        <h5 class="webpage-header text-center">Survolez un pays pour afficher ces informations.</h5>
+    </header>
+    <div class="container-fluid">
+            <div class="col-lg-3">
+                <table id="countriesList">
+                    <th class="text-center"><h5>Liste des pays</h5></th>
+                    <tr>
+                        <c:forEach var="country" items="${countries}">
+                            <td class="list-group-item"><a onClick="alert('ok');"><c:out value="${country.name}" /></a></td>
+                        </c:forEach>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-lg-9">
+                <div id="worldmap"></div>
+            </div>
     </div>
-</div>
-<footer class="text-center webpage-header">
-    Polytech Lyon Morgan Funtowicz & Mickael Shah
-</footer>
+    <footer class="text-center webpage-header">Polytech Lyon Morgan Funtowicz & Mickael Shah</footer>
 </body>
 <script src="${pageContext.request.contextPath}/js/jquery.js"></script>
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
@@ -58,7 +55,7 @@
 <script src="${pageContext.request.contextPath}/js/typeahead.bundle.min.js" ></script>
 <script src="${pageContext.request.contextPath}/js/countries.js"></script>
 <script src="${pageContext.request.contextPath}/js/soap.js"></script>
-<%--<script type="application/javascript">
+<script type="application/javascript">
     jQuery(document).ready(function(){
 
         console.log("Loading Vector Map");
@@ -75,14 +72,16 @@
             onRegionTipShow: function(e, label, code){
                 console.log("Over : " + code);
 
-                var country = getBy('iso2', code);
+                label.html("Je suis un texte super long qui claque des culs !");
+
+                /*var country = getBy('iso2', code);
                 if(country != null){
                     getCountry(country.fr, function(request){
                         if(request.getElementsByTagNameNS(SOAP_NS, "name").length > 0) {
                             var name = request.getElementsByTagNameNS(SOAP_NS, "name")[0].innerHTML;
                             var capital = request.getElementsByTagNameNS(SOAP_NS, "capital")[0].innerHTML;
                             var population = request.getElementsByTagNameNS(SOAP_NS, "population")[0].innerHTML;
-                            label.html('<div style="text-align: center;">' + name  +"</div>" +
+                            label.html('<div style="text-align: center;">' + label.html()  +"</div>" +
                                     "Capitale : " + capital +
                                     ", Population : " + population + " habitants");
                         }else{
@@ -93,10 +92,27 @@
                     });
                 }else{
                     label.html("Non trouvé");
-                }
+                }*/
             }
         }).vectorMap('get', 'mapObject').updateSize();
 
     });
-</script>--%>
+</script>
+<script type="application/javascript">
+    function elementHeight(element) {
+        var height = 0;
+        var body = window.document.body;
+        if (window.innerHeight) {
+            height = window.innerHeight;
+        } else if (body.parentElement.clientHeight) {
+            height = body.parentElement.clientHeight;
+        } else if (body && body.clientHeight) {
+            height = body.clientHeight;
+        }
+        document.getElementById(element).style.height = (height - 200) + "px";
+    }
+
+    elementHeight("countriesList");
+    elementHeight("worldmap");
+</script>
 </html>

@@ -1,10 +1,13 @@
-.webpage-header{
-    color: white;
+html, body, table {
+    height:100%
 }
 
-#worldmap{
-    height: 450px;
-    max-height: 1024px;
+.container-fluid{
+    margin-bottom: -50px;
+}
+
+.webpage-header{
+    color: white;
 }
 
 #listPays {
@@ -65,14 +68,25 @@ a:hover{
     width:100%;
 }
 
-body{
-    margin: 0
-}
-
 .fill-height {
     height: 100%;
     margin-top: 0;
     margin-bottom: 0;
+}
+
+table tbody, table thead
+{
+    display: block;
+}
+
+table tbody
+{
+    overflow: auto;
+    height: 100%;
+}
+
+th{
+    color:white;
 }
 
 footer{
