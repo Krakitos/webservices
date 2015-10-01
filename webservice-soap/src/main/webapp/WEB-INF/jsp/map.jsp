@@ -57,9 +57,6 @@
 <script src="${pageContext.request.contextPath}/js/soap.js"></script>
 <script type="application/javascript">
     jQuery(document).ready(function(){
-
-        console.log("Loading Vector Map");
-
         $("#worldmap").vectorMap({
             map: 'world_mill_en',
             series: {
@@ -70,11 +67,7 @@
                 }]
             },
             onRegionTipShow: function(e, label, code){
-                console.log("Over : " + code);
-
-                label.html("Je suis un texte super long qui claque des culs !");
-
-                /*var country = getBy('iso2', code);
+                var country = getBy('iso2', code);
                 if(country != null){
                     getCountry(country.fr, function(request){
                         if(request.getElementsByTagNameNS(SOAP_NS, "name").length > 0) {
@@ -92,7 +85,7 @@
                     });
                 }else{
                     label.html("Non trouvé");
-                }*/
+                }
             }
         }).vectorMap('get', 'mapObject').updateSize();
 
