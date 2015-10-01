@@ -16,6 +16,7 @@ function getCountry(country, onReady, onFailed){
     jQuery.ajax({
         url: SOAP_ENDPOINT_URL,
         type: "POST",
+        async: false,
         dataType: "xml",
         data: request.replace('?', country),
         contentType: "text/xml; charset=\"utf-8\"",
