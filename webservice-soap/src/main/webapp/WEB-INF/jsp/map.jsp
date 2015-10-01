@@ -91,6 +91,7 @@
             </div>
         </div>
     </div>
+    <p/>
     <footer class="text-center webpage-header">Polytech Lyon Morgan Funtowicz & Mickael Shah</footer>
 </body>
 </html>
