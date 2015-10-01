@@ -13,20 +13,18 @@
     <title>Pays interactifs</title>
 
     <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/css/the-big-picture.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/jquery-jvectormap-2.0.4.css" rel="stylesheet"/>
     <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet"/>
 
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/jquery.js"></script>
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/jquery-jvectormap-2.0.4.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/gdp-data.js"></script>
     <script src="${pageContext.request.contextPath}/js/jquery-jvectormap-world-mill-en.js"></script>
-    <script src="${pageContext.request.contextPath}/js/typeahead.bundle.min.js" ></script>
+    <script src="${pageContext.request.contextPath}/js/numeral.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/countries.js"></script>
     <script src="${pageContext.request.contextPath}/js/soap.js"></script>
+    <script src="${pageContext.request.contextPath}/js/map.js"></script>
     <script type="application/javascript" defer>
         jQuery(document).ready(function(){
             $("#worldmap").vectorMap({
@@ -48,7 +46,7 @@
                                 var population = request.getElementsByTagNameNS(SOAP_NS, "population")[0].innerHTML;
                                 label.html('<div style="text-align: center;">' + label.html()  +"</div>" +
                                         "Capitale : " + capital +
-                                        ", Population : " + population + " habitants");
+                                        ", Population : " + numeral(population).format('0 ,0') + " habitants");
                             }else{
                                 label.html(label.html() + " Non trouvé");
                             }
@@ -85,7 +83,9 @@
                 <nav class="list-group">
                     <ul id="listPays">
                         <c:forEach var="country" items="${countries}">
-                            <li class="list-group-item" id="listli"><a onClick="selectRegion('<c:out value="${country.name}" />'><c:out value="${country.name}" /></a></li>
+                            <li class="list-group-item" id="listli">
+                                <a onClick="selectRegion('<c:out value="${country.name}" />');"><c:out value="${country.name}" /></a>
+                            </li>
                         </c:forEach>
                     </ul>
                 </nav>
