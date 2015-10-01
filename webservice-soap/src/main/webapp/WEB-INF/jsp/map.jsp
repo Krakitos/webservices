@@ -13,21 +13,19 @@
     <title>Pays interactifs</title>
 
     <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/css/the-big-picture.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/the-big-pict ure.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/jquery-jvectormap-2.0.4.css" rel="stylesheet"/>
     <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet"/>
 
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/jquery.js"></script>
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/jquery-jvectormap-2.0.4.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/gdp-data.js"></script>
     <script src="${pageContext.request.contextPath}/js/jquery-jvectormap-world-mill-en.js"></script>
-    <script src="${pageContext.request.contextPath}/js/typeahead.bundle.min.js" ></script>
-    <script src="${pageContext.request.contextPath}/js/countries.js"></script>
-    <script src="${pageContext.request.contextPath}/js/soap.js"></script>
-    <script type="application/javascript" defer>
+    <script src="${pageContext.request.contextPath}/js/countries.js" async></script>
+    <script src="${pageContext.request.contextPath}/js/numeral.min.js" async></script>
+    <script src="${pageContext.request.contextPath}/js/soap.js" async></script>
+    <script async>
         jQuery(document).ready(function(){
             $("#worldmap").vectorMap({
                 map: 'world_mill_en',
@@ -43,14 +41,15 @@
                     if(country != null){
                         getCountry(country.fr, function(request){
                             if(request.getElementsByTagNameNS(SOAP_NS, "name").length > 0) {
+                                console.log(request.getElementsByTagNameNS(SOAP_NS, "name"));
                                 var name = request.getElementsByTagNameNS(SOAP_NS, "name")[0].innerHTML;
                                 var capital = request.getElementsByTagNameNS(SOAP_NS, "capital")[0].innerHTML;
                                 var population = request.getElementsByTagNameNS(SOAP_NS, "population")[0].innerHTML;
-                                label.html('<div style="text-align: center;">' + label.html()  +"</div>" +
+                                label.html('<p style="text-align: center;"><b>' + name  +"</br></b></p>" +
                                         "Capitale : " + capital +
-                                        ", Population : " + population + " habitants");
+                                        ", Population : " + numeral(population).format('0,0') + " habitants");
                             }else{
-                                label.html(label.html() + " Non trouvé");
+                                label.html('<b>' + label.html() + '</b> non trouvé ... :(');
                             }
                         }, function(error){
                             label.html("Une erreur est survenue : " + error);
@@ -67,6 +66,8 @@
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
 
