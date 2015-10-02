@@ -12,10 +12,20 @@ jQuery(document).ready(function(){
             var country = getBy('iso2', code);
             if(country != null){
                 getCountry(country.fr, function(request){
-                    if(request.getElementsByTagNameNS(SOAP_NS, "name").length > 0) {
-                        var name = request.getElementsByTagNameNS(SOAP_NS, "name")[0].innerHTML;
-                        var capital = request.getElementsByTagNameNS(SOAP_NS, "capital")[0].innerHTML;
-                        var population = request.getElementsByTagNameNS(SOAP_NS, "population")[0].innerHTML;
+
+                    console.log(request);
+
+                    $(request).find('SOAP-ENV\\:Body').find('ns2\\:countryResponse').find('ns2\\:country').find('ns2\\:name').text()
+
+                    if($(request).find('Body').find('countryResponse').find('country')){
+                        var country = $(request).find('Body')
+                                                .find('countryResponse')
+                                                .find('country');
+
+                        var name = country.find('name').text();
+                        var capital = country.find('capital').text();
+                        var population = country.find('population').text();
+
                         label.html('<div style="text-align: center;">' + name  +"</div>" +
                             "Capitale : " + capital +
                             ", Population : " + population + " habitants");

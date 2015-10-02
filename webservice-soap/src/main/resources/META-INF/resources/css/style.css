@@ -34,7 +34,7 @@ a:hover{
 }
 
 #listPays {
-    height: 80vh;
+    height: 76vh;
     overflow: scroll;
     overflow-x: hidden;
 }
@@ -44,6 +44,10 @@ a:hover{
     background-color: #333333;
     color: #ffffff;
     border: none;
+}
+
+#listli:hover{
+    cursor: pointer;
 }
 
 #listPays::-webkit-scrollbar{
