@@ -1,3 +1,5 @@
+const COUNTRIES_NS = 'http://etu/polytech/ws/soap/lang';
+
 jQuery(document).ready(function(){
     $("#worldmap").vectorMap({
         map: 'world_mill_en',
@@ -12,31 +14,23 @@ jQuery(document).ready(function(){
             var country = getBy('iso2', code);
             if(country != null){
                 getCountry(country.fr, function(request){
+                    if(request.getElementsByTagNameNS(COUNTRIES_NS, 'country').length){
 
-                    console.log(request);
-
-                    $(request).find('SOAP-ENV\\:Body').find('ns2\\:countryResponse').find('ns2\\:country').find('ns2\\:name').text()
-
-                    if($(request).find('Body').find('countryResponse').find('country')){
-                        var country = $(request).find('Body')
-                                                .find('countryResponse')
-                                                .find('country');
-
-                        var name = country.find('name').text();
-                        var capital = country.find('capital').text();
-                        var population = country.find('population').text();
+                        var name = request.getElementsByTagNameNS(COUNTRIES_NS, 'name')[0].innerHTML;
+                        var capital = request.getElementsByTagNameNS(COUNTRIES_NS, 'capital')[0].innerHTML;
+                        var population = request.getElementsByTagNameNS(COUNTRIES_NS, 'population')[0].innerHTML;
 
                         label.html('<div style="text-align: center;">' + name  +"</div>" +
                             "Capitale : " + capital +
-                            ", Population : " + population + " habitants");
+                            ", Population : " + numeral(population).format('0,0') + " habitants");
                     }else{
-                        label.html(label.html() + " Non trouvé");
+                        label.html(label.html() + " introuvable");
                     }
                 }, function(error){
                     label.html("Une erreur est survenue : " + error);
                 });
             }else{
-                label.html("Non trouvé");
+                label.html(label.html() + " introuvable");
             }
         }
     }).vectorMap('get', 'mapObject').updateSize();
