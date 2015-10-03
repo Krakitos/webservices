@@ -40,30 +40,19 @@
         <h5 class="webpage-header text-center">Survolez un pays pour afficher ces informations.</h5>
     </header>
     <div class="container-fluid">
-            <div class="col-lg-2">
-                <nav class="list-group">
-                    <div class="row">
-                        <ul id="listPays">
-                            <c:forEach var="country" items="${countries}">
-                                <li class="list-group-item" id="listli">
-                                    <a onClick="selectRegion('<c:out value="${country.name}" />');"><c:out value="${country.name}" /></a>
-                                </li>
-                            </c:forEach>
-                        </ul>
+        <div class="row">
+            <div class="col-sm-3">
+                <div id="countries_list" class="list-group allSize" role="navigation">
+                    <div class="list-group-item active">
+                        <h4 class="list-group-item-heading">Liste des pays</h4>
+                        <p class="list-group-item-text">Sélectionnez un pays pour le visualiser sur la carte</p>
                     </div>
-                    <div class="row">
-                        <div class="col-lg-offset-2">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search for...">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">Go!</button>
-                            </span>
-                            </div>
-                        </div>
-                    </div>
-                </nav>
+                    <c:forEach var="country" items="${countries}">
+                        <a class="list-group-item" onClick="selectRegion('<c:out value="${country.name}" />');"><c:out value="${country.name}" /></a>
+                    </c:forEach>
+                </div>
             </div>
-            <div class="col-lg-10 allSize">
+            <div class="col-sm-9 allSize">
                 <div class="allSize" id="worldmap"></div>
             </div>
         </div>
