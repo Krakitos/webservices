@@ -77,3 +77,7 @@ a.list-group-item{
     font-family: Calibri, serif;
     color: white;
 }
+
+.jvectormap-container{
+    border-radius: 5px;
+}
