@@ -32,6 +32,10 @@ jQuery(document).ready(function(){
             }else{
                 label.html(label.html() + " introuvable");
             }
+        },
+        onRegionClick : function(e, code){
+            var country = getBy('iso2',code);
+            selectRegion(country.fr);
         }
     }).vectorMap('get', 'mapObject').updateSize();
 
@@ -44,5 +48,11 @@ function selectRegion(region) {
     if(country) {
         map.clearSelectedRegions();
         map.setSelectedRegions(country.iso2);
-    }
+
+
+
+        }
+
+
+
 }
