@@ -58,6 +58,12 @@
         </div>
     </div>
     <p></p>
-    <footer class="text-center webpage-header">Polytech Lyon Morgan Funtowicz & Mickael Shah</footer>
+    <footer>
+        <div class="container-fluid">
+            <div class="row">
+                <h4 class="webpage-header text-center">Polytech Lyon Morgan Funtowicz & Mickael Shah</h4>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
