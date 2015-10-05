@@ -123,7 +123,7 @@ var mapping = [
     {'iso2':'LS', 'iso3':'LSO', 'fr':'Lesotho', 'en':'Lesotho' },
     {'iso2':'LV', 'iso3':'LVA', 'fr':'Lettonie', 'en':'Latvia' },
     {'iso2':'LR', 'iso3':'LBR', 'fr':'Libéria', 'en':'Liberia' },
-    {'iso2':'LY', 'iso3':'LBY', 'fr':'Jamahiriya Arabe Libyenne', 'en':'Libyan Arab Jamahiriya' },
+    {'iso2':'LY', 'iso3':'LBY', 'fr':'Libye', 'en':'Libya' },
     {'iso2':'LI', 'iso3':'LIE', 'fr':'Liechtenstein', 'en':'Liechtenstein' },
     {'iso2':'LT', 'iso3':'LTU', 'fr':'Lituanie', 'en':'Lithuania' },
     {'iso2':'LU', 'iso3':'LUX', 'fr':'Luxembourg', 'en':'Luxembourg' },
