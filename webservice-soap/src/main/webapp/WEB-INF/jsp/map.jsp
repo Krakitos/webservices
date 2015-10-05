@@ -37,7 +37,7 @@
 <body>
     <header>
         <h1 class="webpage-header text-center">Carte du monde interactive</h1>
-        <h5 class="webpage-header text-center">Survolez un pays pour afficher ces informations.</h5>
+        <h5 class="webpage-header text-center">Survolez un pays pour afficher ses informations.</h5>
     </header>
     <div class="container-fluid">
         <div class="row">
