@@ -17,7 +17,7 @@ public class Emplacement {
     @Column(name = "numempl")
     private int id;
 
-    @OneToOne()
+    @ManyToOne()
     @JoinColumn(name = "codetypee")
     private TypeEmplacement type;
 
