@@ -1,3 +1,4 @@
+CREATE DATABASE IF NOT EXISTS CERISAIE;
 use cerisaie;
 -- --------------------------------------------------------
 
@@ -10,7 +11,7 @@ CREATE TABLE CLIENT (
   AdrRueCli VARCHAR(50) NOT NULL ,
   CpCli INTEGER NOT NULL ,
   VilleCli VARCHAR(50) NOT NULL ,
-  PieceCli CHAR(2) NOT NULL ,
+  PieceCli VARCHAR(2) NOT NULL ,
   NumPieceCli INTEGER NOT NULL
 );
 
