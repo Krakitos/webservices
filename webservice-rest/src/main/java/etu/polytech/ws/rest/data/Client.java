@@ -44,32 +44,56 @@ public class Client {
         this.numPiece = numPiece;
     }
 
-    public int getNumPiece() {
-        return numPiece;
-    }
-
-    public String getPiece() {
-        return piece;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public int getZipCode() {
-        return zipCode;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
     public int getId() {
         return id;
     }
 
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public int getZipCode() {
+        return zipCode;
+    }
+
+    public void setZipCode(int zipCode) {
+        this.zipCode = zipCode;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getPiece() {
+        return piece;
+    }
+
+    public void setPiece(String piece) {
+        this.piece = piece;
+    }
+
+    public int getNumPiece() {
+        return numPiece;
+    }
+
+    public void setNumPiece(int numPiece) {
+        this.numPiece = numPiece;
     }
 
     @Override
