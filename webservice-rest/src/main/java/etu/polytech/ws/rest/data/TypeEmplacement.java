@@ -32,6 +32,18 @@ public class TypeEmplacement {
         this.price = price;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public String getLibelle() {
+        return libelle;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
     @Override
     public String toString() {
         return "TypeEmplacement{" +
