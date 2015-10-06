@@ -4,9 +4,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.time.ZoneOffset;
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -68,12 +66,12 @@ public class Sejour {
         return emplacement;
     }
 
-    public LocalDateTime getDebutSejour() {
-        return LocalDateTime.ofInstant(debutSejour.toInstant(), ZoneId.systemDefault());
+    public Date getDebutSejour() {
+        return debutSejour;
     }
 
-    public LocalDateTime getFinSejour() {
-        return LocalDateTime.ofInstant(finSejour.toInstant(), ZoneId.systemDefault());
+    public Date getFinSejour() {
+        return finSejour;
     }
 
     public int getNbPersonne() {
