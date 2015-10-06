@@ -5,7 +5,7 @@ use cerisaie;
 -- Contenu de la table `client`
 --
 CREATE TABLE CLIENT (
-  NumCli INTEGER PRIMARY KEY,
+  NumCli INTEGER PRIMARY KEY AUTO_INCREMENT,
   NomCli VARCHAR(100) NOT NULL ,
   AdrRueCli VARCHAR(50) NOT NULL ,
   CpCli INTEGER NOT NULL ,
