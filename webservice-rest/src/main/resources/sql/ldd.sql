@@ -23,11 +23,11 @@ INSERT INTO `client` (`NumCli`, `NomCli`, `AdrRueCli`, `CpCli`, `VilleCli`, `Pie
   (5, 'Piaf', '4 rue des pivoines', '69007', 'Lyon', 'PC', '347235684'),
   (6, 'Rose', '5 rue des marguerites', '69160', 'Tassin', 'CI', '56947341'),
   (7, 'Poussin', '20 rue des iris', '69400', 'Villefranche', 'CI', '234511'),
-  (8, 'Piactivitet', 'rue des pÃ©tunias', '69340', 'Francheville', 'CI', '347289'),
+  (8, 'Piactivitet', 'rue des pétunias', '69340', 'Francheville', 'CI', '347289'),
   (9, 'Aigle', '3 rue des geraniums', '69290', 'Saint Consorce', 'CI', '234591'),
   (10, 'Mesange', '10 rue des aubÃ©pines', '69290', 'Craponne', 'PS', '2398643'),
   (11, 'Aactivitette', '4 rue des orchidÃ©s', '69500', 'Bron', 'PC', '34723896'),
-  (12, 'Buse', '5 rue des nÃ©nuphars', '69200', 'Venissieux', 'CI', '569475342');
+  (12, 'Buse', '5 rue des nénuphars', '69200', 'Venissieux', 'CI', '569475342');
 
 -- --------------------------------------------------------
 
@@ -47,8 +47,8 @@ INSERT INTO `sport` (`CodeSport`, `LibelleSport`, `UniteTpsSport`, `TarifUnite`)
   (1, 'Tennis', '1 heure', 9),
   (2, 'VTT', '1/2 journée', 15),
   (3, 'Planche-vo', '1 journée', 22),
-  (4, 'PÃ©dalo', '2 heures', 8),
-  (5, 'CanoÃ«', '1/2 journée', 10);
+  (4, 'Pédalo', '2 heures', 8),
+  (5, 'Canoé', '1/2 journée', 10);
 
 -- --------------------------------------------------------
 
