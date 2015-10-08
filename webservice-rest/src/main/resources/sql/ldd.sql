@@ -25,8 +25,8 @@ INSERT INTO `client` (`NumCli`, `NomCli`, `AdrRueCli`, `CpCli`, `VilleCli`, `Pie
   (7, 'Poussin', '20 rue des iris', '69400', 'Villefranche', 'CI', '234511'),
   (8, 'Piactivitet', 'rue des pétunias', '69340', 'Francheville', 'CI', '347289'),
   (9, 'Aigle', '3 rue des geraniums', '69290', 'Saint Consorce', 'CI', '234591'),
-  (10, 'Mesange', '10 rue des aubÃ©pines', '69290', 'Craponne', 'PS', '2398643'),
-  (11, 'Aactivitette', '4 rue des orchidÃ©s', '69500', 'Bron', 'PC', '34723896'),
+  (10, 'Mesange', '10 rue des aubépines', '69290', 'Craponne', 'PS', '2398643'),
+  (11, 'Aactivitette', '4 rue des orchidés', '69500', 'Bron', 'PC', '34723896'),
   (12, 'Buse', '5 rue des nénuphars', '69200', 'Venissieux', 'CI', '569475342');
 
 -- --------------------------------------------------------
