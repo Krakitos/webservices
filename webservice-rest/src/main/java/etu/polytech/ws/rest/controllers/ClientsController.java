@@ -12,7 +12,7 @@ import java.util.Optional;
  * Created by momo- on 06/10/2015.
  */
 @RestController
-@RequestMapping("/cerisaie/clients")
+@RequestMapping("/cerisaie/ws/clients")
 public class ClientsController {
 
     @Autowired
