@@ -27,19 +27,19 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Camping Cerisaie</a>
+            <a class="navbar-brand" href="${pageContext.request.contextPath}/cerisaie/">Camping Cerisaie</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="#">Réservation</a>
+                    <a href="${pageContext.request.contextPath}/cerisaie/booking">Réservation</a>
                 </li>
                 <li>
-                    <a href="#">Gestion client</a>
+                    <a href="${pageContext.request.contextPath}/cerisaie/clients">Gestion client</a>
                 </li>
                 <li>
-                    <a href="#">Activités</a>
+                    <a href="${pageContext.request.contextPath}/cerisaie/activities">Activités</a>
                 </li>
             </ul>
         </div>
