@@ -10,41 +10,26 @@
     <meta name="author" content="Morgan Funtowicz & Mickael Shah">
 
     <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">
 
     <title>Camping Cerisaie</title>
 </head>
 <body>
-<!-- Navigation -->
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="${pageContext.request.contextPath}/cerisaie/">Camping Cerisaie</a>
-        </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li>
-                    <a href="${pageContext.request.contextPath}/cerisaie/booking">Réservation</a>
-                </li>
-                <li>
-                    <a href="${pageContext.request.contextPath}/cerisaie/clients">Gestion client</a>
-                </li>
-                <li>
-                    <a href="${pageContext.request.contextPath}/cerisaie/activities">Activités</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+
+    <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+        <a class="navbar-brand" href="http://v4-alpha.getbootstrap.com/examples/starter-template/#">Project name</a>
+        <ul class="nav navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="http://v4-alpha.getbootstrap.com/examples/starter-template/#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://v4-alpha.getbootstrap.com/examples/starter-template/#">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://v4-alpha.getbootstrap.com/examples/starter-template/#">Contact</a>
+            </li>
+        </ul>
+    </nav>
 
 <!-- Page Content -->
 <div class="container">
@@ -54,5 +39,6 @@
 </div>
 
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js" type="application/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/ie10-viewport-bug-workaround.js" type="application/javascript"></script>
 <script src="${pageContext.request.contextPath}/js/jquery-2.1.4.min.js" type="application/javascript"></script>
 </body>
