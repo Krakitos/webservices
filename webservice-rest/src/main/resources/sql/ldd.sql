@@ -15,7 +15,7 @@ CREATE TABLE CLIENT (
   NumPieceCli INTEGER NOT NULL
 );
 
-INSERT INTO `client` (`NumCli`, `NomCli`, `AdrRueCli`, `CpCli`, `VilleCli`, `PieceCli`, `NumPieceCli`) VALUES
+INSERT INTO `CLIENT` (`NumCli`, `NomCli`, `AdrRueCli`, `CpCli`, `VilleCli`, `PieceCli`, `NumPieceCli`) VALUES
   (1, 'Merle', '3 rue des lilas', '69005', 'Lyon', 'CI', '2356786'),
   (2, 'Poussin', 'rue des tulipes', '69007', 'Lyon', 'CI', '347835684'),
   (3, 'Rossignol', '3 rue des glaieuls', '69002', 'Lyon', 'CI', '23556645'),
@@ -43,7 +43,7 @@ CREATE TABLE SPORT(
   CONSTRAINT TARIF_GT_ZERO_CSTR CHECK(TarifUnite > 0)
 );
 
-INSERT INTO `sport` (`CodeSport`, `LibelleSport`, `UniteTpsSport`, `TarifUnite`) VALUES
+INSERT INTO `SPORT` (`CodeSport`, `LibelleSport`, `UniteTpsSport`, `TarifUnite`) VALUES
   (1, 'Tennis', '1 heure', 9),
   (2, 'VTT', '1/2 journée', 15),
   (3, 'Planche-vo', '1 journée', 22),
@@ -63,7 +63,7 @@ CREATE TABLE `TYPE_EMPLACEMENT` (
   CONSTRAINT TARIF_GT_ZERO_CSTR CHECK(TARIFTYPEPL > 0)
 );
 
-INSERT INTO `type_emplacement` (`CodeTypeE`, `LIBTYPEPL`, `TARIFTYPEPL`) VALUES
+INSERT INTO `TYPE_EMPLACEMENT` (`CodeTypeE`, `LIBTYPEPL`, `TARIFTYPEPL`) VALUES
   (1, 'TENTE', 19),
   (2, 'CARAVANE', 29),
   (3, 'CAMPING-CAR', 32),
@@ -83,7 +83,7 @@ CREATE TABLE EMPLACEMENT(
   CONSTRAINT NB_PERSO_MAX_GT_ZERO_CSTR CHECK(NbPersMaxEmpl > 0)
 );
 
-INSERT INTO `emplacement` (`NumEmpl`, `CodeTypeE`, `SurfaceEmpl`, `NbPersMaxEmpl`) VALUES
+INSERT INTO `EMPLACEMENT` (`NumEmpl`, `CodeTypeE`, `SurfaceEmpl`, `NbPersMaxEmpl`) VALUES
   (1, 1, 4, 4),
   (2, 1, 4, 4),
   (3, 1, 6, 5),
@@ -116,7 +116,7 @@ CREATE TABLE SEJOUR(
   CONSTRAINT NB_PERSONNE_GT_ZERO_CSTR CHECK (NbPersonnes > 0)
 );
 
-INSERT INTO `sejour` (`NumSej`, `NumCli`, `NumEmpl`, `DatedebSej`, `DateFinSej`, `NbPersonnes`) VALUES
+INSERT INTO `SEJOUR` (`NumSej`, `NumCli`, `NumEmpl`, `DatedebSej`, `DateFinSej`, `NbPersonnes`) VALUES
   (1, 1, 1, '2012-07-01', '2012-07-10', 4),
   (2, 2, 3, '2012-07-02', '2012-07-13', 4),
   (3, 3, 4, '2012-07-01', '2012-07-14', 4),
@@ -148,7 +148,7 @@ CREATE TABLE ACTIVITE(
   FOREIGN KEY(NumSej) REFERENCES SEJOUR(NumSej) ON DELETE CASCADE
 );
 
-INSERT INTO `activite` (`CodeSport`, `DateJour`, `NumSej`, `NBLOC`) VALUES
+INSERT INTO `ACTIVITE` (`CodeSport`, `DateJour`, `NumSej`, `NBLOC`) VALUES
   (1, '2012-07-05', 3, 1),
   (1, '2012-07-20', 13, 1),
   (2, '2012-07-05', 2, 1),
@@ -159,5 +159,3 @@ INSERT INTO `activite` (`CodeSport`, `DateJour`, `NumSej`, `NBLOC`) VALUES
   (4, '2012-07-09', 5, 2),
   (5, '2012-07-07', 6, 3),
   (5, '2012-07-12', 8, 2);
-
--- --------------------------------------------------------
