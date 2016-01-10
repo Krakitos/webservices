@@ -5,6 +5,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 /**
  * Created by mfuntowicz on 20/09/15.
  */
@@ -40,4 +43,14 @@ public class CerisaieController {
     public ModelAndView getActivitiesPage(){
         return new ModelAndView(VIEW_ACTIVITIES_NAME);
     }
+
+    @RequestMapping(value = "/hello", method = RequestMethod.GET)
+    public ModelAndView gethello(){
+        return new ModelAndView("hello");}
+
+    @RequestMapping(value = "/addClient", method = RequestMethod.GET)
+    public ModelAndView addClient(){
+        return new ModelAndView("api/clients");
+    }
+
 }

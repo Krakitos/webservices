@@ -13,6 +13,10 @@
     <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">
 
     <title>Camping Cerisaie</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/public/hello.js"></script>
+    <script src="${pageContext.request.contextPath}/js/public/listeclient.js"></script>
 </head>
 <body>
 
@@ -41,6 +45,7 @@
 <script>window.jQuery || document.write('<script src="js/jquery-2.1.4.min.js"><\/script>')</script>
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js" type="application/javascript"></script>
 <script src="${pageContext.request.contextPath}/js/angular.min.js" type="application/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/public/hello.js"></script>
 <script src="${pageContext.request.contextPath}/js/angular-resource.min.js" type="application/javascript"></script>
 <script src="${pageContext.request.contextPath}/js/app.js" type="application/javascript"></script>
 <script src="${pageContext.request.contextPath}/js/services.js" type="application/javascript"></script>

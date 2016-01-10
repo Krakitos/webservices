@@ -14,7 +14,7 @@ public class Activite  {
     private ActiviteId id;
 
     @Column(name = "nbloc")
-    private short nbLoc;
+    private int nbLoc;
 
     public Activite() {}
 
@@ -31,7 +31,7 @@ public class Activite  {
         return id.date;
     }
 
-    public short getNbLoc() {
+    public int getNbLoc() {
         return nbLoc;
     }
 
