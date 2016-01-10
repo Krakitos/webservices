@@ -19,14 +19,14 @@
     <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
         <a class="navbar-brand" href="#">Camping Cerisaie</a>
         <ul class="nav navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
+            <li class="nav-item">
+                <a class="nav-link" href="${pageContext.request.contextPath}/cerisaie/booking">Réservation</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="${pageContext.request.contextPath}/clients">Clients</a>
+                <a class="nav-link" href="${pageContext.request.contextPath}/cerisaie/clients">Clients</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="${pageContext.request.contextPath}/contacts">Contact</a>
+                <a class="nav-link" href="${pageContext.request.contextPath}/cerisaie/activities">Activités</a>
             </li>
         </ul>
     </nav>
@@ -43,5 +43,6 @@
 <script src="${pageContext.request.contextPath}/js/angular.min.js" type="application/javascript"></script>
 <script src="${pageContext.request.contextPath}/js/angular-resource.min.js" type="application/javascript"></script>
 <script src="${pageContext.request.contextPath}/js/app.js" type="application/javascript"></script>
+<script src="${pageContext.request.contextPath}/js/services.js" type="application/javascript"></script>
 <script src="${pageContext.request.contextPath}/js/ie10-viewport-bug-workaround.js" type="application/javascript"></script>
 </body>
