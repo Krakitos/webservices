@@ -23,6 +23,9 @@ public class CerisaieController {
         return VIEW_HOME_NAME;
     }
 
+    @RequestMapping("")
+    public String getHomePageShort(){ return getHomePage(); }
+
     @RequestMapping(value="/booking", method = RequestMethod.GET)
     public ModelAndView getBookingPage(){
         return new ModelAndView(VIEW_BOOKING_NAME);
