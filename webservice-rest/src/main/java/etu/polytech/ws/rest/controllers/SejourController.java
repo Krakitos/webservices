@@ -14,7 +14,7 @@ import java.util.stream.StreamSupport;
  * Created by momo- on 06/10/2015.
  */
 @RestController
-@RequestMapping("/cerisaie/ws/booking")
+@RequestMapping("/cerisaie/api/booking")
 public class SejourController {
 
     @Autowired
