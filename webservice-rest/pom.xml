@@ -35,11 +35,6 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
-        <dependency>
-            <groupId>javaee</groupId>
-            <artifactId>javaee</artifactId>
-            <version>5</version>
-        </dependency>
     </dependencies>
 
     <build>
