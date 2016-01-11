@@ -14,7 +14,7 @@ public class Activite  {
     private ActiviteId id;
 
     @Column(name = "nbloc")
-    private int nbLoc;
+    private short nbLoc;
 
     public Activite() {}
 
