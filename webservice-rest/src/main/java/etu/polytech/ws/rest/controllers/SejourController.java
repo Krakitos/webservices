@@ -30,7 +30,7 @@ public class SejourController {
         return repository.findOne(sejour).getActivites();
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.PUT)
+    @RequestMapping(value = "", method = RequestMethod.PUT)
     public void addSejour(@RequestBody Sejour sejour){
         repository.save(sejour);
     }
