@@ -23,7 +23,7 @@ public class ClientsController {
         return repository.findAll();
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/add", method = RequestMethod.PUT)
     public Client add(@RequestBody Client client){
         return repository.save(client);
     }
