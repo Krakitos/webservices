@@ -20,6 +20,8 @@
                     <td>{{client.zipCode}}</td>
                     <td>{{client.city}}</td>
                     <td>{{client.piece}}</td>
+                    <td><button class="btn btn-info">Editer</button></td>
+                    <td><button class="btn btn-danger" ng-click="delete_client({{client.id}})">Supprimer</button></td>
                 </tr>
             </tbody>
         </table>

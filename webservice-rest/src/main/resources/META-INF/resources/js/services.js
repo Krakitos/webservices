@@ -6,9 +6,10 @@ var clientsServices = angular.module('clientsServices', ['ngResource']);
 
 clientsServices.factory('Client', ['$resource',
     function($resource){
-        return $resource('api/clients', {}, {
-            query: {method:'GET', isArray:true},
-            save: {method:'PUT', isArray:false}
+        return $resource('api/clients/:id', { id: '@id'}, {
+            query: {method:'GET', params:{}, isArray:true},
+            save: {method:'PUT', params:{}, isArray:false},
+            delete: {method:'DELETE', isArray:false}
         });
     }]
 );
