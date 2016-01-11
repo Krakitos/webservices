@@ -17,6 +17,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/public/hello.js"></script>
     <script src="${pageContext.request.contextPath}/js/public/listeclient.js"></script>
+    <script src="${pageContext.request.contextPath}/js/public/listesejour.js"></script>
 </head>
 <body>
 
@@ -30,7 +31,7 @@
                 <a class="nav-link" href="${pageContext.request.contextPath}/cerisaie/clients">Clients</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="${pageContext.request.contextPath}/cerisaie/activities">Activités</a>
+                <a class="nav-link" href="${pageContext.request.contextPath}/cerisaie/factures">Factures</a>
             </li>
         </ul>
     </nav>

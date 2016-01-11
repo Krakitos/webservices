@@ -20,6 +20,11 @@ public class SejourController {
     @Autowired
     private SejourRepository repository;
 
+    @RequestMapping(value = "", method = RequestMethod.GET)
+    public Iterable<Sejour> getAll(){
+        return repository.findAll();
+    }
+
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Sejour getById(@PathVariable("id") int id){
         return repository.findOne(id);
