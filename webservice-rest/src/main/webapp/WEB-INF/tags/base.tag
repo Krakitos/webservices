@@ -1,6 +1,6 @@
 <%@tag description="Cerisaie Layout" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html class="full" lang="en" ng-app>
+<html class="full" lang="en" ng-app="cerisaieapp">
 <!-- Make sure the <html> tag is set to the .full CSS class. Change the background image in the full.css file. -->
 
 <head>
@@ -12,10 +12,16 @@
     <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">
 
+    <script src="${pageContext.request.contextPath}/js/angular.min.js" type="application/javascript"></script>
+    <script src="${pageContext.request.contextPath}/js/angular-resource.min.js" type="application/javascript"></script>
+    <script src="${pageContext.request.contextPath}/js/angular-route.js"></script>
+    <script src="${pageContext.request.contextPath}/js/app.js" type="application/javascript"></script>
+    <script src="${pageContext.request.contextPath}/js/services.js" type="application/javascript"></script>
+    <script src="${pageContext.request.contextPath}/js/controllers.js" type="application/javascript"></script>
+
     <title>Camping Cerisaie</title>
 </head>
 <body>
-
     <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
         <a class="navbar-brand" href="#">Camping Cerisaie</a>
         <ul class="nav navbar-nav">
@@ -31,18 +37,16 @@
         </ul>
     </nav>
 
-<!-- Page Content -->
-<div class="container">
-    <div class="row">
-        <jsp:doBody />
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+            <jsp:doBody />
+        </div>
     </div>
-</div>
-<script src="${pageContext.request.contextPath}/js/jquery-2.1.4.min.js" type="application/javascript"></script>
-<script>window.jQuery || document.write('<script src="js/jquery-2.1.4.min.js"><\/script>')</script>
-<script src="${pageContext.request.contextPath}/js/bootstrap.min.js" type="application/javascript"></script>
-<script src="${pageContext.request.contextPath}/js/angular.min.js" type="application/javascript"></script>
-<script src="${pageContext.request.contextPath}/js/angular-resource.min.js" type="application/javascript"></script>
-<script src="${pageContext.request.contextPath}/js/app.js" type="application/javascript"></script>
-<script src="${pageContext.request.contextPath}/js/services.js" type="application/javascript"></script>
-<script src="${pageContext.request.contextPath}/js/ie10-viewport-bug-workaround.js" type="application/javascript"></script>
+
+    <!-- Scripts -->
+    <script src="${pageContext.request.contextPath}/js/jquery-2.1.4.min.js" type="application/javascript"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-2.1.4.min.js"><\/script>')</script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js" type="application/javascript"></script>
+    <script src="${pageContext.request.contextPath}/js/ie10-viewport-bug-workaround.js" type="application/javascript"></script>
 </body>
