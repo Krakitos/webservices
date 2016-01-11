@@ -16,7 +16,7 @@
                 <tr ng-repeat="client in clients">
                     <td>{{client.name}}</td>
                     <td>{{client.address}}</td>
-                    <td>{{client.zipcode}}</td>
+                    <td>{{client.zipCode}}</td>
                     <td>{{client.city}}</td>
                     <td>{{client.piece}}</td>
                 </tr>
