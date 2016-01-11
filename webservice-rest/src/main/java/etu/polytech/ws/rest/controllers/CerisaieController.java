@@ -19,6 +19,8 @@ public class CerisaieController {
     private static final String VIEW_BOOKING_NAME = "booking";
     private static final String VIEW_CLIENTS_NAME = "clients";
     private static final String VIEW_FACTURES_NAME = "factures";
+    private static final String VIEW_FACTURESSEJOUR_NAME = "factureSejour";
+    private static final String VIEW_FACTURESACTIVITE_NAME = "factureActivite";
 
 
     @RequestMapping("/")
@@ -52,5 +54,17 @@ public class CerisaieController {
     public ModelAndView addClient(){
         return new ModelAndView("api/clients");
     }
+
+    @RequestMapping(value = "/factureSejour/{id}", method = RequestMethod.GET)
+    public ModelAndView createFS(){
+        return new ModelAndView(VIEW_FACTURESSEJOUR_NAME);
+    }
+
+    @RequestMapping(value = "/factureActivite/{id}", method = RequestMethod.GET)
+    public ModelAndView createFA(){
+        return new ModelAndView(VIEW_FACTURESACTIVITE_NAME);
+    }
+
+
 
 }

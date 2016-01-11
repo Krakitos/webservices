@@ -37,6 +37,7 @@
                                         <td>{{activite.sport.unitPrice}}</td>
                                     </tr>
                                 </TABLE>
+                            </td>
                         </tr>
                     </TABLE>
                 </div>
