@@ -2,7 +2,9 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <t:base>
     <div class="col-lg-12" ng-controller="ClientsListCtrl">
-        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#add_client_modal">Ajouter</button>
+        <p>
+            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#add_client_modal">Ajouter</button>
+        </p>
         <table class="table">
             <thead>
                 <tr>
@@ -11,6 +13,7 @@
                     <th>Code Postal</th>
                     <th>Ville</th>
                     <th>Justificatif</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -20,8 +23,12 @@
                     <td>{{client.zipCode}}</td>
                     <td>{{client.city}}</td>
                     <td>{{client.piece}}</td>
-                    <td><button class="btn btn-info" ng-click="show_update_form(client)">Editer</button></td>
-                    <td><button class="btn btn-danger" ng-click="delete_client(client.id)">Supprimer</button></td>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="edit btns">
+                            <button class="btn btn-secondary" ng-click="show_update_form(client)">Editer</button>
+                            <button class="btn btn-danger" ng-click="delete_client(client.id)">Supprimer</button>
+                        </div>
+                    </td>
                 </tr>
             </tbody>
         </table>
