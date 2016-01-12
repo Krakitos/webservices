@@ -10,7 +10,8 @@ clientsServices.factory('Client', ['$resource',
             query: {method:'GET', params:{}, isArray:true},
             save: {method:'PUT', params:{}, isArray:false},
             delete: {method:'DELETE', params:{id: '@id'}, isArray:false},
-            update: {method: 'UPDATE', params:{id: '@id'}, isArray:false}
+            update: {method: 'UPDATE', params:{id: '@id'}, isArray:false},
+            get: {method: 'GET', params:{id: '@id'}, isArray:false}
         });
     }]
 );

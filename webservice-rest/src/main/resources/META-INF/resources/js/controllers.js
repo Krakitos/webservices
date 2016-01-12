@@ -10,16 +10,16 @@ clientsControllers.controller('ClientsListCtrl', ['$scope', 'Client', function($
            $scope.clients = Client.query();
         });
     }
-}]);
+    $scope.select_client = function(client) {
+        $scope.selectedClient = Client.get(client);
+    }
 
-clientsControllers.controller('ClientsUpdateCtrl', ['$scope', 'Client', function($scope, Client) {
-    $scope.clients = Client.query();
-
-    $scope.delete_client = function(client){
+    $scope.update_client = function(client){
         Client.update({id:client}, function(result){
             for(var c in $scope.clients){
                 if(c.id == client) {
                     $scope.clients.update(c);
+                    $('#update_client_modal').modal('hide');
                 }
             }
         });
