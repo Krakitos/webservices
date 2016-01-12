@@ -5,12 +5,9 @@ clientsControllers.controller('ClientsListCtrl', ['$scope', 'Client', function($
     $scope.clients = Client.query();
 
     $scope.delete_client = function(client){
+        console.log("Delete_client", client);
         Client.delete({id:client}, function(result){
-           for(var c in $scope.clients){
-               if(c.id == client) {
-                   $scope.clients.remove(c);
-               }
-           }
+           $scope.clients = Client.query();
         });
     }
 }]);
