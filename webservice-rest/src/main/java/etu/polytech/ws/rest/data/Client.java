@@ -1,6 +1,7 @@
 package etu.polytech.ws.rest.data;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by momo- on 06/10/2015.
@@ -30,6 +31,9 @@ public class Client {
 
     @Column(name = "numpiececli")
     private int numPiece;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "NumCli", orphanRemoval = true)
+    private transient List<Sejour> sejours;
 
     public Client() {
     }

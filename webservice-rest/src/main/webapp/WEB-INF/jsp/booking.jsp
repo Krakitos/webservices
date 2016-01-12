@@ -1,6 +1,104 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags/" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <t:base>
-    <div class="col-lg-12">
+    <div class="col-lg-12" ng-controller="SejoursListCtrl">
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#add_sejour_modal">Ajouter</button>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Client</th>
+            <th>Emplacement</th>
+            <th>Date de debut sejour</th>
+            <th>Date de fin sejour</th>
+            <th>Nombres de personnes</th>
+            <th>Activite</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="sejour in sejours">
+            <td>{{sejour.id}}</td>
+            <td>{{sejour.client.name}}</td>
+            <td>{{sejour.emplacement.type.libelle}}</td>
+            <td>{{sejour.debutSejour}}</td>
+            <td>{{sejour.finSejour}}</td>
+            <td>{{sejour.nbPersonne}}</td>
+            <td><TABLE class="table table-hover">
+                <TR>
+                    <th>Libelle</th>
+                    <th>Nombres Location</th>
+                    <th>Temps</th>
+                    <th>Prix unitaire</th>
+                </TR>
+                <tr ng-repeat="activite in sejour.activites">
+                    <td>{{activite.sport.libelle}}</td>
+                    <td>{{activite.nbLoc}}</td>
+                    <td>{{activite.sport.unite}}</td>
+                    <td>{{activite.sport.unitPrice}}</td>
+                </tr>
+            </TABLE>
+            </td>
+            <td><button class="btn btn-info">Editer</button></td>
+            <td><button class="btn btn-danger" ng-click="delete_sejout({{sejour.id}})">Supprimer</button></td>
+        </tr>
+        </tbody>
+    </table>
 
+    <!-- Modal -->
+    <div ng-controller="SejourBuilderCtrl" class="modal fade" id="add_sejour_modal" tabindex="-1" role="dialog" aria-labelledby="add_sejour_modalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Création d'un séjour</h4>
+                </div>
+                <div class="modal-body">
+                    <fieldset class="form-group">
+                        <label for="client_id">ID Client:</label>
+                        <input type="text" ng-model="sejour.client.id" class="form-control" id="client_id" placeholder="ID du client...">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="client_address">Date debut:</label>
+                        <input type="text" ng-model="sejour.id" class="form-control" id="client_address" placeholder="(2015-07-21)...">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="client_zipcode">Date fin:</label>
+                        <input type="number" max="99999" ng-model="client.zipCode" class="form-control" id="client_zipcode" placeholder="(2015-07-31)......">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="client_city">Nombre de personnes :</label>
+                        <input type="text" ng-model="client.city" class="form-control" id="client_city" placeholder="Nombre de personnes...">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="client_justif">Emplacement :</label>
+                        <select ng-model="client.piece" class="c-select" id="client_justif">
+                            <option selected="selected">1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                            <option>13</option>
+
+                        </select>
+                    </fieldset>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-primary" ng-click="add_client()">Ajouter</button>
+                </div>
+            </div>
+        </div>
     </div>
+
+
+
 </t:base>
