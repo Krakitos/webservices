@@ -12,7 +12,7 @@ import java.util.Optional;
  * Created by momo- on 06/10/2015.
  */
 @RestController
-@RequestMapping("/cerisaie/ws/clients")
+@RequestMapping("/cerisaie/api/clients")
 public class ClientsController {
 
     @Autowired
@@ -23,8 +23,8 @@ public class ClientsController {
         return repository.findAll();
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public Client add(@RequestBody Client client){
+    @RequestMapping(value = "", method = RequestMethod.PUT)
+    public @ResponseBody Client add(@RequestBody Client client){
         return repository.save(client);
     }
 

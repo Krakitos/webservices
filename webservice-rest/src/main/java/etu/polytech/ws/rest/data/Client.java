@@ -1,12 +1,12 @@
 package etu.polytech.ws.rest.data;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by momo- on 06/10/2015.
  */
 @Entity
-@Table(name = "client")
 public class Client {
 
     @Id
@@ -31,6 +31,9 @@ public class Client {
 
     @Column(name = "numpiececli")
     private int numPiece;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true, mappedBy = "client")
+    private List<Sejour> sejours;
 
     public Client() {
     }

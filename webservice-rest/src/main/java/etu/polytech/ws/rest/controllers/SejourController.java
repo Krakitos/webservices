@@ -14,11 +14,17 @@ import java.util.stream.StreamSupport;
  * Created by momo- on 06/10/2015.
  */
 @RestController
-@RequestMapping("/cerisaie/ws/booking")
+@RequestMapping("/cerisaie/api/booking")
 public class SejourController {
 
     @Autowired
     private SejourRepository repository;
+
+    @RequestMapping(value = "", method = RequestMethod.GET)
+    public Iterable<Sejour> getAll(){
+        return repository.findAll();
+    }
+
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Sejour getById(@PathVariable("id") int id){
@@ -30,7 +36,7 @@ public class SejourController {
         return repository.findOne(sejour).getActivites();
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @RequestMapping(value = "", method = RequestMethod.PUT)
     public void addSejour(@RequestBody Sejour sejour){
         repository.save(sejour);
     }
