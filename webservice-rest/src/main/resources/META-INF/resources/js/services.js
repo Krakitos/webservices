@@ -2,12 +2,28 @@
  * Created by mfuntowicz on 23/12/15.
  */
 
-var clientServices = angular.module('clientServices', ['ngResource']);
+var clientsServices = angular.module('clientsServices', ['ngResource']);
 
-clientServices.factory('Client', ['$resource',
+clientsServices.factory('Client', ['$resource',
     function($resource){
-        return $resource('clients/:clientId', {}, {
-            query: {method:'GET', params:{clientId:'clients'}, isArray:true}
+        return $resource('api/clients/:id', { id: '@id'}, {
+            query:  {method:'GET', params:{}, isArray:true},
+            save:   {method:'PUT', params:{}, isArray:false},
+            delete: {method:'DELETE', params:{id: '@id'}, isArray:false},
+            update: {method: 'POST', params:{id: '@id'}, isArray:false},
+            get:    {method: 'GET', params:{id: '@id'}, isArray:false}
+        });
+    }]
+);
+
+var sejoursServices = angular.module('sejoursServices', ['ngResource']);
+
+sejoursServices.factory('Sejour', ['$resource',
+    function($resource){
+        return $resource('api/booking/:id', { id: '@id'}, {
+            query: {method:'GET', params:{}, isArray:true},
+            save: {method:'PUT', params:{}, isArray:false},
+            delete: {method:'DELETE', isArray:false}
         });
     }]
 );

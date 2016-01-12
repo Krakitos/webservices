@@ -25,6 +25,7 @@ public class SejourController {
         return repository.findAll();
     }
 
+
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Sejour getById(@PathVariable("id") int id){
         return repository.findOne(id);
@@ -35,7 +36,7 @@ public class SejourController {
         return repository.findOne(sejour).getActivites();
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @RequestMapping(value = "", method = RequestMethod.PUT)
     public void addSejour(@RequestBody Sejour sejour){
         repository.save(sejour);
     }
