@@ -56,6 +56,7 @@ public class Activite  {
         private Sport sport;
 
         @Column(name = "datejour")
+        @Temporal(TemporalType.DATE)
         private Date date;
     }
 }

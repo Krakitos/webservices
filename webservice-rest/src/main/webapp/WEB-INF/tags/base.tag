@@ -33,7 +33,7 @@
                 <a class="nav-link" href="${pageContext.request.contextPath}/cerisaie/clients">Clients</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="${pageContext.request.contextPath}/cerisaie/activities">Activités</a>
+                <a class="nav-link" href="${pageContext.request.contextPath}/cerisaie/factures">Factures</a>
             </li>
         </ul>
     </nav>

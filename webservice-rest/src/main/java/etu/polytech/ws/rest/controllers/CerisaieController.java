@@ -55,16 +55,5 @@ public class CerisaieController {
         return new ModelAndView("api/clients");
     }
 
-    @RequestMapping(value = "/factureSejour/{id}", method = RequestMethod.GET)
-    public ModelAndView createFS(){
-        return new ModelAndView(VIEW_FACTURESSEJOUR_NAME);
-    }
-
-    @RequestMapping(value = "/factureActivite/{id}", method = RequestMethod.GET)
-    public ModelAndView createFA(){
-        return new ModelAndView(VIEW_FACTURESACTIVITE_NAME);
-    }
-
-
 
 }

@@ -43,6 +43,39 @@ sejoursControllers.controller('SejoursListCtrl', ['$scope', 'Sejour', function($
             }
         });
     }
+
+    $scope.show_factureSejour = function(sejour){
+        $scope.selectedS = sejour;
+        $('#facture_sejour_modal').modal('show');
+
+        var parts = sejour.debutSejour.split("-");
+        var d1 = new Date(parts[0], parts[1] - 1, parts[2]);
+        var parts2 = sejour.finSejour.split("-");
+        var d2 = new Date(parts2[0], parts2[1] - 1, parts2[2]);
+        function diffdate(d1,d2){
+            var WNbJours = d2.getTime() - d1.getTime();
+            return Math.ceil(WNbJours/(1000*60*60*24));
+        }
+        var diffJ = diffdate(d1,d2);
+        $scope.total= diffJ * sejour.emplacement.type.price * sejour.nbPersonne;
+
+    };
+
+    $scope.show_factureActivite = function(sejour){
+        $scope.selectedS = sejour;
+        $('#facture_activite_modal').modal('show');
+
+
+        $scope.getTotal = function(){
+            var total = 0;
+            for(var i = 0; i < $scope.selectedS.activites.length; i++){
+                var activite = $scope.selectedS.activites[i];
+                total += (activite.nbLoc * activite.sport.unitPrice);
+            }
+            return total;
+        }
+    };
+
 }]);
 
 sejoursControllers.controller('SejourBuilderCtrl', ['$scope', 'Sejour', function($scope, Sejour) {
