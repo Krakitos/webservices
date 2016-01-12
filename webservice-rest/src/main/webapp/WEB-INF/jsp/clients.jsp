@@ -20,7 +20,7 @@
                     <td>{{client.zipCode}}</td>
                     <td>{{client.city}}</td>
                     <td>{{client.piece}}</td>
-                    <td><button class="btn btn-info" ng-click="select(client.id)" data-toggle="modal" data-target="#update_client_modal">Editer</button></td>
+                    <td><button class="btn btn-info" ng-click="show_update_form(client)">Editer</button></td>
                     <td><button class="btn btn-danger" ng-click="delete_client(client.id)">Supprimer</button></td>
                 </tr>
             </tbody>
@@ -83,23 +83,23 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="client_name2">Nom:</label>
-                        <input type="text" ng-model="client.name" class="form-control" id="client_name2" value="ok" >
+                        <input type="text" ng-model="selected.name" class="form-control" id="client_name2" value="ok" >
                     </div>
                     <fieldset class="form-group">
                         <label for="client_address2">Adresse:</label>
-                        <input type="text" ng-model="client.address" class="form-control" id="client_address2" placeholder="Adresse du client..." >
+                        <input type="text" ng-model="selected.address" class="form-control" id="client_address2" placeholder="Adresse du client..." >
                     </fieldset>
                     <fieldset class="form-group">
                         <label for="client_zipcode2">Code Postal:</label>
-                        <input type="number" max="99999" ng-model="client.zipCode" class="form-control" id="client_zipcode2" placeholder="Code Postal du client...">
+                        <input type="number" max="99999" ng-model="selected.zipCode" class="form-control" id="client_zipcode2" placeholder="Code Postal du client...">
                     </fieldset>
                     <fieldset class="form-group">
                         <label for="client_city2">Ville:</label>
-                        <input type="text" ng-model="client.city" class="form-control" id="client_city2" placeholder="Ville du client...">
+                        <input type="text" ng-model="selected.city" class="form-control" id="client_city2" placeholder="Ville du client...">
                     </fieldset>
                     <fieldset class="form-group">
                         <label for="client_justif2">Type de pièce justificative d'identité:</label>
-                        <select ng-model="client.piece" class="c-select" id="client_justif2">
+                        <select ng-model="selected.piece" class="c-select" id="client_justif2">
                             <option selected="selected">CI</option>
                             <option>PC</option>
                             <option>PS</option>
@@ -108,7 +108,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                    <button type="button" class="btn btn-primary" ng-click="add_client()">Ajouter</button>
+                    <button type="button" class="btn btn-primary" ng-click="update_client()">Editer</button>
                 </div>
             </div>
         </div>

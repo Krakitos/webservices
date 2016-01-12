@@ -10,19 +10,15 @@ clientsControllers.controller('ClientsListCtrl', ['$scope', 'Client', function($
            $scope.clients = Client.query();
         });
     }
-    $scope.select_client = function(client) {
-        $scope.selectedClient = Client.get(client);
-    }
 
-    $scope.update_client = function(client){
-        Client.update({id:client}, function(result){
-            for(var c in $scope.clients){
-                if(c.id == client) {
-                    $scope.clients.update(c);
-                    $('#update_client_modal').modal('hide');
-                }
-            }
-        });
+    $scope.show_update_form = function(client){
+        $scope.selected = client;
+        $('#update_client_modal').modal('show');
+    };
+
+    $scope.update_client = function(){
+        Client.update($scope.selected);
+        $('#update_client_modal').modal('hide');
     }
 }]);
 
