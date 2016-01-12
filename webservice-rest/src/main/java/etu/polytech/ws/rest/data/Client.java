@@ -32,8 +32,8 @@ public class Client {
     @Column(name = "numpiececli")
     private int numPiece;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "NumCli", orphanRemoval = true)
-    private transient List<Sejour> sejours;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true, mappedBy = "client")
+    private List<Sejour> sejours;
 
     public Client() {
     }
