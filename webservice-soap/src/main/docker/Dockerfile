@@ -1,5 +1,2 @@
-FROM java:8
-VOLUME /tmp
-ADD  webservice-soap-1.0-SNAPSHOT.jar pays.jar
-RUN bash -c 'touch /pays.jar'
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/pays.jar"]
+FROM tomcat:8.0.20-jre8
+COPY webservice-soap-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/countries.war
