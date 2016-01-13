@@ -3,6 +3,7 @@ package etu.polytech.ws.soap.controllers;
 import etu.polytech.ws.soap.services.CountryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -20,5 +21,10 @@ public class CountriesController {
     @RequestMapping("/")
     public ModelAndView home(){
         return new ModelAndView("map", "countries", countryRepository.findAll());
+    }
+
+    @RequestMapping("/{name}")
+    public String greeting(@PathVariable("name") String name){
+        return "Hello " + name;
     }
 }
