@@ -83,7 +83,7 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="client_name2">Nom:</label>
-                        <input type="text" ng-model="selected.name" class="form-control" id="client_name2" value="ok" >
+                        <input type="text" ng-model="selected.name" class="form-control" id="client_name2" >
                     </div>
                     <fieldset class="form-group">
                         <label for="client_address2">Adresse:</label>

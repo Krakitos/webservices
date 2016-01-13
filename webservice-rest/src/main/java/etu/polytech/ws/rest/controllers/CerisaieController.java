@@ -46,10 +46,6 @@ public class CerisaieController {
         return new ModelAndView(VIEW_FACTURES_NAME);
     }
 
-    @RequestMapping(value = "/hello", method = RequestMethod.GET)
-    public ModelAndView gethello(){
-        return new ModelAndView("hello");}
-
     @RequestMapping(value = "/addClient", method = RequestMethod.GET)
     public ModelAndView addClient(){
         return new ModelAndView("api/clients");

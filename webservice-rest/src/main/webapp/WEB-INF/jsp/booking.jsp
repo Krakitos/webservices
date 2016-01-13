@@ -38,8 +38,8 @@
                 </tr>
             </TABLE>
             </td>
-            <td><button class="btn btn-info">Editer</button></td>
-            <td><button class="btn btn-danger" ng-click="delete_sejout({{sejour.id}})">Supprimer</button></td>
+            <td><button class="btn btn-info" ng-click="show_updateS_form(sejour)" >Editer</button></td>
+            <td><button class="btn btn-danger" ng-click="delete_sejour(sejour.id)">Supprimer</button></td>
         </tr>
         </tbody>
     </table>
@@ -60,20 +60,20 @@
                         <input type="text" ng-model="sejour.client.id" class="form-control" id="client_id" placeholder="ID du client...">
                     </fieldset>
                     <fieldset class="form-group">
-                        <label for="client_address">Date debut:</label>
-                        <input type="text" ng-model="sejour.id" class="form-control" id="client_address" placeholder="(2015-07-21)...">
+                        <label for="sejour_debut">Date debut:</label>
+                        <input type="text" ng-model="sejour.debutSejour" class="form-control" id="sejour_debut" placeholder="(2015-07-21)...">
                     </fieldset>
                     <fieldset class="form-group">
-                        <label for="client_zipcode">Date fin:</label>
-                        <input type="number" max="99999" ng-model="client.zipCode" class="form-control" id="client_zipcode" placeholder="(2015-07-31)......">
+                        <label for="sejour_fin">Date fin:</label>
+                        <input type="text" ng-model="sejour.finSejour" class="form-control" id="sejour_fin" placeholder="(2015-07-31)......">
                     </fieldset>
                     <fieldset class="form-group">
-                        <label for="client_city">Nombre de personnes :</label>
-                        <input type="text" ng-model="client.city" class="form-control" id="client_city" placeholder="Nombre de personnes...">
+                        <label for="nbPersonne">Nombre de personnes :</label>
+                        <input type="text" ng-model="sejour.nbPersonne" class="form-control" id="nbPersonne" placeholder="Nombre de personnes...">
                     </fieldset>
                     <fieldset class="form-group">
-                        <label for="client_justif">Emplacement :</label>
-                        <select ng-model="client.piece" class="c-select" id="client_justif">
+                        <label for="emplacement">Emplacement :</label>
+                        <select ng-model="sejour.emplacement.id" class="c-select" id="emplacement">
                             <option selected="selected">1</option>
                             <option>2</option>
                             <option>3</option>
@@ -87,13 +87,66 @@
                             <option>11</option>
                             <option>12</option>
                             <option>13</option>
-
                         </select>
                     </fieldset>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                    <button type="button" class="btn btn-primary" ng-click="add_client()">Ajouter</button>
+                    <button type="button" class="btn btn-primary" ng-click="add_sejour()">Ajouter</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div ng-controller="SejoursListCtrl" class="modal fade" id="update_sejour_modal" tabindex="-1" role="dialog" aria-labelledby="update_sejour_modalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel2">Mise a jour d'un séjour</h4>
+                </div>
+                <div class="modal-body">
+                    <fieldset class="form-group">
+                        <label for="client_id2">ID Client:</label>
+                        <input type="text" ng-model="sejour.client.id" class="form-control" id="client_id2" placeholder="ID du client...">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="sejour_debut2">Date debut:</label>
+                        <input type="text" ng-model="sejour.debutSejour" class="form-control" id="sejour_debut2" placeholder="(2015-07-21)...">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="sejour_fin2">Date fin:</label>
+                        <input type="text" ng-model="sejour.finSejour" class="form-control" id="sejour_fin2" placeholder="(2015-07-31)......">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="nbPersonne2">Nombre de personnes :</label>
+                        <input type="text" ng-model="sejour.nbPersonne" class="form-control" id="nbPersonne2" placeholder="Nombre de personnes...">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="emplacement2">Emplacement :</label>
+                        <select ng-model="sejour.emplacement.id" class="c-select" id="emplacement2">
+                            <option selected="selected">1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                            <option>13</option>
+                        </select>
+                    </fieldset>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-primary" ng-click="update_sejour()">Ajouter</button>
                 </div>
             </div>
         </div>

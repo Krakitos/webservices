@@ -34,28 +34,44 @@ clientsControllers.controller('ClientBuilderCtrl', ['$scope', 'Client', function
 sejoursControllers.controller('SejoursListCtrl', ['$scope', 'Sejour', function($scope, Sejour) {
     $scope.sejours = Sejour.query();
 
+
     $scope.delete_sejour = function(sejour){
-        Sejour.delete(sejour, function(result){
-            for(var s in $scope.sejours){
-                if(s.id == sejour) {
-                    $scope.sejours.remove(s);
-                }
-            }
+        console.log("Delete_sejour", sejour);
+        Sejour.delete({id:sejour}, function(result){
+            $scope.sejours = Sejour.query();
         });
-    }
+    };
+
+    $scope.show_updateS_form = function(sejour){
+        $scope.selected = sejour;
+        $('#update_sejour_modal').modal('show');
+    };
+
+    $scope.update_sejour = function(){
+        Sejour.update($scope.selected);
+        $('#update_sejour_modal').modal('hide');
+    };
 
     $scope.show_factureSejour = function(sejour){
         $scope.selectedS = sejour;
         $('#facture_sejour_modal').modal('show');
 
+        var maintenant=new Date();
+        var jour=maintenant.getDate();
+        var mois=maintenant.getMonth()+1;
+        var an=maintenant.getFullYear();
+        $scope.dateJour = "Le "+ jour + "/" + mois + "/" + an;
+
         var parts = sejour.debutSejour.split("-");
         var d1 = new Date(parts[0], parts[1] - 1, parts[2]);
         var parts2 = sejour.finSejour.split("-");
         var d2 = new Date(parts2[0], parts2[1] - 1, parts2[2]);
+
         function diffdate(d1,d2){
             var WNbJours = d2.getTime() - d1.getTime();
             return Math.ceil(WNbJours/(1000*60*60*24));
         }
+
         var diffJ = diffdate(d1,d2);
         $scope.total= diffJ * sejour.emplacement.type.price * sejour.nbPersonne;
 
@@ -64,6 +80,12 @@ sejoursControllers.controller('SejoursListCtrl', ['$scope', 'Sejour', function($
     $scope.show_factureActivite = function(sejour){
         $scope.selectedS = sejour;
         $('#facture_activite_modal').modal('show');
+
+        var maintenant=new Date();
+        var jour=maintenant.getDate();
+        var mois=maintenant.getMonth()+1;
+        var an=maintenant.getFullYear();
+        $scope.dateJour = "Le "+ jour + "/" + mois + "/" + an;
 
 
         $scope.getTotal = function(){
@@ -75,6 +97,23 @@ sejoursControllers.controller('SejoursListCtrl', ['$scope', 'Sejour', function($
             return total;
         }
     };
+
+    $scope.printFS = function(){
+
+        var doc = new jsPDF();
+        doc.fromHTML($('#facture_sejour_modal').html(), 15, 15);
+        doc.save('facture.pdf');
+
+    };
+
+    $scope.printFA = function(){
+
+        var doc = new jsPDF();
+        doc.fromHTML($('#facture_activite_modal').html(), 15, 15);
+        doc.save('facture.pdf');
+
+    };
+
 
 }]);
 

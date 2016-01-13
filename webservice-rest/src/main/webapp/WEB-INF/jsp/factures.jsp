@@ -53,13 +53,7 @@
                                     <p class="gras"> Numero de facture : Sejour{{selectedS.id}}</p>
                                 </div>
                                 <div class="col-lg-6">
-                                    <p class="gras"> Date de facturation : <SCRIPT LANGUAGE="JavaScript">
-                                        var maintenant=new Date();
-                                        var jour=maintenant.getDate();
-                                        var mois=maintenant.getMonth()+1;
-                                        var an=maintenant.getFullYear();
-                                        document.write("Le ",jour,"/",mois,"/",an);
-                                    </SCRIPT></p>
+                                    <p class="gras"> Date de facturation : {{dateJour}}</p>
                                 </div>
                             </div>
 
@@ -111,7 +105,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                        <button type="button" class="btn btn-primary" ng-click="printFS()" >Imprimer</button>
+                        <button type="button" class="btn btn-primary" ng-click="printFS()" >Exporter</button>
                     </div>
                 </div>
             </div>
@@ -144,13 +138,7 @@
                                         <p class="gras"> Numero de facture : Sejour{{selectedS.id}}</p>
                                     </div>
                                     <div class="col-lg-6">
-                                        <p class="gras"> Date de facturation : <SCRIPT LANGUAGE="JavaScript">
-                                            var maintenant=new Date();
-                                            var jour=maintenant.getDate();
-                                            var mois=maintenant.getMonth()+1;
-                                            var an=maintenant.getFullYear();
-                                            document.write("Le ",jour,"/",mois,"/",an);
-                                        </SCRIPT></p>
+                                        <p class="gras"> Date de facturation : {{dateJour}}
                                     </div>
                                 </div>
 
@@ -203,7 +191,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                        <button type="button" class="btn btn-primary" ng-click="printFA()">Imprimer</button>
+                        <button type="button" class="btn btn-primary" ng-click="printFA()">Exporter</button>
                     </div>
                 </div>
             </div>

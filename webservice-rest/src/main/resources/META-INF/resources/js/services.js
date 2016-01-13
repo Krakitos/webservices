@@ -21,9 +21,10 @@ var sejoursServices = angular.module('sejoursServices', ['ngResource']);
 sejoursServices.factory('Sejour', ['$resource',
     function($resource){
         return $resource('api/booking/:id', { id: '@id'}, {
-            query: {method:'GET', params:{}, isArray:true},
-            save: {method:'PUT', params:{}, isArray:false},
-            delete: {method:'DELETE', isArray:false}
+            query:  {method:'GET', params:{}, isArray:true},
+            save:   {method:'PUT', params:{}, isArray:false},
+            delete: {method:'DELETE', params:{id: '@id'}, isArray:false},
+            update: {method: 'POST', params:{id: '@id'}, isArray:false}
         });
     }]
 );
