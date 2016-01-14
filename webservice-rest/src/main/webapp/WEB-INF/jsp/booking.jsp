@@ -111,23 +111,23 @@
                 <div class="modal-body">
                     <fieldset class="form-group">
                         <label for="client_id2">ID Client:</label>
-                        <input type="text" ng-model="sejour.client.id" class="form-control" id="client_id2" placeholder="ID du client...">
+                        <input type="text" ng-model="selected.client.id" class="form-control" id="client_id2" placeholder="ID du client...">
                     </fieldset>
                     <fieldset class="form-group">
                         <label for="sejour_debut2">Date debut:</label>
-                        <input type="text" ng-model="sejour.debutSejour" class="form-control" id="sejour_debut2" placeholder="(2015-07-21)...">
+                        <input type="text" ng-model="selected.debutSejour" class="form-control" id="sejour_debut2" placeholder="(2015-07-21)...">
                     </fieldset>
                     <fieldset class="form-group">
                         <label for="sejour_fin2">Date fin:</label>
-                        <input type="text" ng-model="sejour.finSejour" class="form-control" id="sejour_fin2" placeholder="(2015-07-31)......">
+                        <input type="text" ng-model="selected.finSejour" class="form-control" id="sejour_fin2" placeholder="(2015-07-31)......">
                     </fieldset>
                     <fieldset class="form-group">
                         <label for="nbPersonne2">Nombre de personnes :</label>
-                        <input type="text" ng-model="sejour.nbPersonne" class="form-control" id="nbPersonne2" placeholder="Nombre de personnes...">
+                        <input type="text" ng-model="selected.nbPersonne" class="form-control" id="nbPersonne2" placeholder="Nombre de personnes...">
                     </fieldset>
                     <fieldset class="form-group">
                         <label for="emplacement2">Emplacement :</label>
-                        <select ng-model="sejour.emplacement.id" class="c-select" id="emplacement2">
+                        <select ng-model="selected.emplacement.id" class="c-select" id="emplacement2">
                             <option selected="selected">1</option>
                             <option>2</option>
                             <option>3</option>
