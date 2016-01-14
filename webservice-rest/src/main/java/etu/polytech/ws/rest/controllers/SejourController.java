@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -58,8 +59,18 @@ public class SejourController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public void delete(@PathVariable("id") int id){
-        System.out.println(id);
         repository.delete(id);
 
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public void update(@PathVariable("id") int id, @RequestBody Sejour sejour){
+
+        Optional.ofNullable(repository.findOne(id)).ifPresent(s -> {
+            s.setDebutSejour(sejour.getDebutSejour());
+            s.setFinSejour(sejour.getFinSejour());
+            s.setNbPersonne(sejour.getNbPersonne());
+            repository.save(s);
+        });
     }
 }

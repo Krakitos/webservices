@@ -58,6 +58,30 @@ public class Sejour {
         return id;
     }
 
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public void setEmplacement(Emplacement emplacement) {
+        this.emplacement = emplacement;
+    }
+
+    public void setDebutSejour(Date debutSejour) {
+        this.debutSejour = debutSejour;
+    }
+
+    public void setFinSejour(Date finSejour) {
+        this.finSejour = finSejour;
+    }
+
+    public void setNbPersonne(int nbPersonne) {
+        this.nbPersonne = nbPersonne;
+    }
+
+    public void setActivites(List<Activite> activites) {
+        this.activites = activites;
+    }
+
     public Client getClient() {
         return client;
     }
