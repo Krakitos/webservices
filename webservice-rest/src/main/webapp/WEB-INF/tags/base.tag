@@ -15,6 +15,7 @@
 
     <script src="${pageContext.request.contextPath}/js/angular.min.js" type="application/javascript"></script>
     <script src="${pageContext.request.contextPath}/js/angular-resource.min.js" type="application/javascript"></script>
+    <script src="${pageContext.request.contextPath}/js/jspdf.min.js" type="application/javascript"></script>
     <script src="${pageContext.request.contextPath}/js/angular-route.js"></script>
     <script src="${pageContext.request.contextPath}/js/app.js" type="application/javascript"></script>
     <script src="${pageContext.request.contextPath}/js/services.js" type="application/javascript"></script>
@@ -33,7 +34,7 @@
                 <a class="nav-link" href="${pageContext.request.contextPath}/cerisaie/clients">Clients</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="${pageContext.request.contextPath}/cerisaie/activities">Activités</a>
+                <a class="nav-link" href="${pageContext.request.contextPath}/cerisaie/factures">Factures</a>
             </li>
         </ul>
     </nav>

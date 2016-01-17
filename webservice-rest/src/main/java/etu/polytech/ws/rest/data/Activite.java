@@ -31,7 +31,7 @@ public class Activite  {
         return id.date;
     }
 
-    public short getNbLoc() {
+    public int getNbLoc() {
         return nbLoc;
     }
 
@@ -56,6 +56,7 @@ public class Activite  {
         private Sport sport;
 
         @Column(name = "datejour")
+        @Temporal(TemporalType.DATE)
         private Date date;
     }
 }

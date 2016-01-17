@@ -5,3 +5,20 @@ body {
     padding: 3rem 1.5rem;
     text-align: center;
 }
+
+.border {
+    border-width: 1px;
+    border-style: double;
+    border-color: black;
+}
+.center{
+    text-align: center;
+}
+
+.gras {
+    font-weight:bold
+}
+
+.tableFact{
+    border: 1px double black;
+}
