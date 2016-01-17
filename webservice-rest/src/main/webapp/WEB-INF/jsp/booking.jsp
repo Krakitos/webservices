@@ -13,6 +13,7 @@
             <th>Date de fin sejour</th>
             <th>Nombres de personnes</th>
             <th>Activite</th>
+            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -38,8 +39,12 @@
                 </tr>
             </TABLE>
             </td>
-            <td><button class="btn btn-info" ng-click="show_updateS_form(sejour)" >Editer</button></td>
-            <td><button class="btn btn-danger" ng-click="delete_sejour(sejour.id)">Supprimer</button></td>
+            <td>
+                <div class="btn-group" role="group" aria-label="edit btns">
+                    <button class="btn btn-secondary" ng-click="show_updateS_form(sejour)">Editer</button>
+                    <button class="btn btn-danger" ng-click="delete_sejour(sejour.id)">Supprimer</button>
+                </div>
+            </td>
         </tr>
         </tbody>
     </table>
@@ -146,7 +151,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                    <button type="button" class="btn btn-primary" ng-click="update_sejour()">Ajouter</button>
+                    <button type="button" class="btn btn-primary" ng-click="update_sejour()">Mettre a jour</button>
                 </div>
             </div>
         </div>

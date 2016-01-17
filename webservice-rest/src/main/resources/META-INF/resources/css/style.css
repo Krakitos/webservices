@@ -22,3 +22,7 @@ body {
 .tableFact{
     border: 1px double black;
 }
+
+.imageB{
+    background: white url("camping.jpg") no-repeat right bottom;
+}

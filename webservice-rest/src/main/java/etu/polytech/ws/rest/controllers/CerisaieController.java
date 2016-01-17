@@ -23,13 +23,10 @@ public class CerisaieController {
     private static final String VIEW_FACTURESACTIVITE_NAME = "factureActivite";
 
 
-    @RequestMapping("/")
-    public String getHomePage(){
-        return VIEW_HOME_NAME;
-    }
-
     @RequestMapping("")
-    public String getHomePageShort(){ return getHomePage(); }
+    public ModelAndView getHomePage(){
+        return new ModelAndView(VIEW_HOME_NAME);
+    }
 
     @RequestMapping(value="/booking", method = RequestMethod.GET)
     public ModelAndView getBookingPage(){

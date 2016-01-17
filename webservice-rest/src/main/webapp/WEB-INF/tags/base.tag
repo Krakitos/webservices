@@ -25,7 +25,7 @@
 </head>
 <body>
     <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-        <a class="navbar-brand" href="#">Camping Cerisaie</a>
+        <a class="navbar-brand" href="${pageContext.request.contextPath}/cerisaie/">Camping Cerisaie</a>
         <ul class="nav navbar-nav">
             <li class="nav-item">
                 <a class="nav-link" href="${pageContext.request.contextPath}/cerisaie/booking">Réservation</a>
