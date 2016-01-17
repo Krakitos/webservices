@@ -4,6 +4,8 @@ import etu.polytech.ws.rest.data.Activite;
 import etu.polytech.ws.rest.data.Sejour;
 import etu.polytech.ws.rest.repositories.SejourRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
@@ -58,9 +60,13 @@ public class SejourController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public void delete(@PathVariable("id") int id){
-        repository.delete(id);
-
+    public ResponseEntity delete(@PathVariable("id") int id){
+        if(repository.exists(id)){
+            repository.delete(id);
+            return new ResponseEntity(HttpStatus.OK);
+        }else {
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        }
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.POST)

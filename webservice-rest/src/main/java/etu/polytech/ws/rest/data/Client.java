@@ -32,7 +32,7 @@ public class Client {
     @Column(name = "numpiececli")
     private int numPiece;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true, mappedBy = "client")
+    @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER, orphanRemoval = true, mappedBy = "client")
     private List<Sejour> sejours;
 
     public Client() {
