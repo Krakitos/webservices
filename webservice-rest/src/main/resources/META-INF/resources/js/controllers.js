@@ -38,7 +38,12 @@ sejoursControllers.controller('SejoursListCtrl', ['$scope', 'Sejour', function($
     $scope.delete_sejour = function(sejour){
         console.log("Delete_sejour", sejour);
         Sejour.delete({id:sejour}, function(result){
-            $scope.sejours = Sejour.query();
+
+            for(var i = 0; i < $scope.sejours.length; i++){
+                if($scope.sejours[i].id == sejour){
+                    $scope.sejours.splice(i, 1);
+                }
+            }
         });
     };
 
