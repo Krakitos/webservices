@@ -63,7 +63,7 @@ public class SejourController {
 
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}", method = RequestMethod.POST)
     public void update(@PathVariable("id") int id, @RequestBody Sejour sejour){
 
         Optional.ofNullable(repository.findOne(id)).ifPresent(s -> {
