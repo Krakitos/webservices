@@ -12,19 +12,19 @@
 
     <title>Pays interactifs</title>
 
-    <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/css/jquery-jvectormap-2.0.4.css" rel="stylesheet"/>
-    <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet"/>
+    <link href="${pageContext.request.contextPath}/public/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/public/css/jquery-jvectormap-2.0.4.css" rel="stylesheet"/>
+    <link href="${pageContext.request.contextPath}/public/css/style.css" rel="stylesheet"/>
 
-    <script src="${pageContext.request.contextPath}/js/jquery.js"></script>
-    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
-    <script src="${pageContext.request.contextPath}/js/jquery-jvectormap-2.0.4.min.js"></script>
-    <script src="${pageContext.request.contextPath}/js/gdp-data.js"></script>
-    <script src="${pageContext.request.contextPath}/js/jquery-jvectormap-world-mill-en.js"></script>
-    <script src="${pageContext.request.contextPath}/js/numeral.min.js"></script>
-    <script src="${pageContext.request.contextPath}/js/countries.js"></script>
-    <script src="${pageContext.request.contextPath}/js/soap.js"></script>
-    <script src="${pageContext.request.contextPath}/js/map.js"></script>
+    <script src="${pageContext.request.contextPath}/public/js/jquery.js"></script>
+    <script src="${pageContext.request.contextPath}/public/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/public/js/jquery-jvectormap-2.0.4.min.js"></script>
+    <script src="${pageContext.request.contextPath}/public/js/gdp-data.js"></script>
+    <script src="${pageContext.request.contextPath}/public/js/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="${pageContext.request.contextPath}/public/js/numeral.min.js"></script>
+    <script src="${pageContext.request.contextPath}/public/js/countries.js"></script>
+    <script src="${pageContext.request.contextPath}/public/js/soap.js"></script>
+    <script src="${pageContext.request.contextPath}/public/js/map.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
