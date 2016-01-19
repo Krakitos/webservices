@@ -11,6 +11,11 @@ function getCountry(country, onReady, onFailed){
 
     SOAP_ENDPOINT_URL += '/ws';
 
+    if(SOAP_ENDPOINT_URL.indexOf("http://") != 0 && SOAP_ENDPOINT_URL.indexOf("https://") != 0){
+        SOAP_ENDPOINT_URL = "http://" + SOAP_ENDPOINT_URL;
+    }
+
+
     var request =
         '<x:Envelope xmlns:x="http://schemas.xmlsoap.org/soap/envelope/" xmlns:lan="' + SOAP_NS + '">' +
             '<x:Header/>' +
